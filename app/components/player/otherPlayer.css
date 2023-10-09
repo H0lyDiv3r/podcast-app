@@ -1,0 +1,64 @@
+input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    background: rgba(255, 85, 0, 0);
+    /* border-radius: 16px;   */
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  background: rgba(0, 0, 0, 0);
+  /* border-radius: 16px; */
+}
+
+
+input[type="range"]::-moz-range-track {
+    height: 10px;
+    background: rgba(0, 0, 0, 0);
+    /* border-radius: 16px; */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: #f70;
+    /* border-radius: 50%; */
+    /* border: 2px solid #f50; */
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: #f50;
+    border-radius: 0%;
+    border: 1px solid #f50;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    /*  ...  */
+    /*  slider progress trick  */
+    box-shadow: -4007px 0 0 4000px #f50;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    /*  ...  */
+    /*  slider progress trick  */
+    box-shadow: -4007px 0 0 4000px #f50;
+  }
+
+  input[type="range"]::-webkit-media-controls-timeline{
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f50;
+    height: 100px;
+  }
