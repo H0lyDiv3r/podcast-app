@@ -1,11 +1,15 @@
 import React from 'react'
+import ActionWrapper from '../components/test/ActionWrapper'
 
 // export const getServerSideProps = async()=>{
 //   console.log("here")
 // }
 
-export default function page() {
+export default function page({testText}) {
   return (
-    <div>here is your podcasts</div>
+    <ActionWrapper>
+
+      <div>test test</div>
+    </ActionWrapper>
   )
 }
