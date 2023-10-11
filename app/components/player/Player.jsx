@@ -24,6 +24,7 @@ export default function Player() {
     const [paused,setPaused] = useState(initialState.paused)
     const [muted,setMuted] = useState(initialState.muted)
     const [length,setLength] = useState(0)
+    const [loaded,setLoaded] = useState(false)
 
 
     const audioRef = useRef(null)
@@ -81,8 +82,7 @@ export default function Player() {
         }
         console.log(audioRef)
     }
-
-    useEffect(()=>{
+    const setPlayerValues = ()=>{
         setBuffered(5)
         setLength(audioRef.current.duration)
         audioRef.current.volume = volume /100
@@ -94,13 +94,17 @@ export default function Player() {
         }else{
             audioRef.current.play()
         }
+        console.log(audioRef.current.duration)
+    }
+
+    useEffect(()=>{
     },[])
 
   return (
     <Box bg={"rose.500"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"white"}>
-        <Box display={"none"}>
-            <audio controls ref={audioRef} onPlaying={timeline} onProgress={buffer} >
-                <source src={"./04 - Fairly Local.mp3"} type="audio/mpeg"/>
+        <Box>
+            <audio controls ref={audioRef} onPlaying={timeline} onProgress={buffer} onLoadedData={setPlayerValues} >
+                <source src={"https://www.listennotes.com/e/p/4e7c59e10e4640b98f2f3cb1777dbb43/"} type="audio/mpeg"/>
                 "your browser doesnt support the element"
             </audio>
         </Box>
@@ -126,6 +130,7 @@ export default function Player() {
                 <Input type='range' onChange={positionControl} value={position}  max={length} min={0} position={"relative"} top={"-18px"}/>
                 
             </Box>
+            {length}
 
             <Box display={"flex"} alignItems={"center"} >
                 <Icon as={ muted ? FaVolumeMute : FaVolumeUp} onClick={mute} marginRight={"6px"}/>

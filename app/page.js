@@ -4,6 +4,7 @@ import Player from './components/player/Player'
 import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
 import { Box } from '@chakra-ui/react'
+import SearchBar from './components/searchBar/SearchBar'
 
 
 export default async function Home() {
@@ -11,13 +12,14 @@ export default async function Home() {
   const data = await res.json()
   return (
     <main>
+      <SearchBar/>
         <Player/>
-        <Box display={"flex"}>
+        {/* <Box display={"flex"}>
 
           {data.podcasts.podcasts.map(podcast =>
             <Podcast key={podcast.id}  data={podcast}/>
           )}
-        </Box>
+        </Box> */}
         
         <Episode/>
     </main>

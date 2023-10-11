@@ -16,7 +16,8 @@ export default function Episode() {
             "audio_length_sec":2447,
             "explicit_content":false,
             "maybe_audio_invalid":false,
-            "listennotes_edit_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/#edit"}
+            "listennotes_edit_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/#edit"
+        }
 
   return (
         <Card bg={"rose.400"} minW={"100px"} maxW={"170px"} height={"200px"} 
@@ -27,7 +28,8 @@ export default function Episode() {
                     backdropFilter={"blur(1.5px)"} display={"flex"} flexDir={"column"} justifyContent={"space-between"}>
 
                     <Text fontSize={"md"}>{data.title}</Text>
-                    <Text fontSize={"xs"}>{data.description}</Text>
+                    {/* <Text fontSize={"xs"}>{data.description}</Text> */}
+                    <Text>{new Date(data.pub_date_ms).getFullYear()}</Text>
                 </Box>
 
         </Card>
