@@ -5,6 +5,7 @@ import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
 import { Box } from '@chakra-ui/react'
 import SearchBar from './components/searchBar/SearchBar'
+import PlayerContextProvider from './components/player/PlayerContextProvider'
 
 
 export default async function Home() {
@@ -13,7 +14,9 @@ export default async function Home() {
   return (
     <main>
       <SearchBar/>
+      <PlayerContextProvider>
         <Player/>
+      </PlayerContextProvider>
         {/* <Box display={"flex"}>
 
           {data.podcasts.podcasts.map(podcast =>
@@ -21,7 +24,7 @@ export default async function Home() {
           )}
         </Box> */}
         
-        <Episode/>
+        {/* <Episode/> */}
     </main>
   )
 }

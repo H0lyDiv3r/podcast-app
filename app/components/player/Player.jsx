@@ -1,10 +1,15 @@
 'use client'
 
-import React,{useRef,useEffect, useState} from 'react'
+import React,{useRef,useEffect, useState, useContext} from 'react'
 import "./player.css"
-import { Box, Icon, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Icon, Input, Text } from '@chakra-ui/react'
 import {FaPlay,FaPause,FaVolumeMute,FaVolumeUp,FaVolumeOff} from "react-icons/fa"
 import { motion } from 'framer-motion'
+import VolumeControl from './VolumeControl'
+import Controls from './Controls'
+import TimeLine from './TimeLine'
+import ButtonDefault from '../inputs/buttons/ButtonDefault'
+import { PlayerContext } from './PlayerContextProvider'
 
 
 const initialState = {
@@ -17,16 +22,20 @@ const initialState = {
 }
 
 export default function Player() {
+
+    const {handlePlay,handleTimeline} = useContext(PlayerContext)
     const [volume,setVolume] = useState(initialState.volume * 100)
     const [buffered,setBuffered] = useState(initialState.buffered)
     const [position,setPosition] = useState(initialState.position)
     const [playbackRate,setPlaybackRate] = useState(initialState.playbackRate)
     const [paused,setPaused] = useState(initialState.paused)
     const [muted,setMuted] = useState(initialState.muted)
-    const [length,setLength] = useState(0)
+    const [length,setLength] = useState(2447)
     const [loaded,setLoaded] = useState(false)
+    const [music,setMusic] = useState("test.mp3")
 
 
+    
     const audioRef = useRef(null)
 
     const volumeControl = (e)=>{
@@ -66,10 +75,10 @@ export default function Player() {
               
     }
     const buffer = ()=>{
-        if(audioRef.current.duration!=audioRef.current.currentTime){
+        // if(audioRef.current.duration!=audioRef.current.currentTime){
 
-            setBuffered((audioRef.current.buffered.end(0)/audioRef.current.duration)*100)
-        }
+        //     setBuffered((audioRef.current.buffered.end( audioRef.current.buffered.length - 1 )/audioRef.current.duration)*100)
+        // }
     }
     const speed = (e)=>{
         setPlaybackRate(e.target.value)
@@ -84,7 +93,7 @@ export default function Player() {
     }
     const setPlayerValues = ()=>{
         setBuffered(5)
-        setLength(audioRef.current.duration)
+        // setLength(audioRef.current.duration)
         audioRef.current.volume = volume /100
         audioRef.current.currentTime = position
         audioRef.current.playbackRate = playbackRate
@@ -94,57 +103,26 @@ export default function Player() {
         }else{
             audioRef.current.play()
         }
-        console.log(audioRef.current.duration)
+        setLoaded(true)
     }
 
     useEffect(()=>{
+        setPlayerValues()
     },[])
 
   return (
     <Box bg={"rose.500"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"white"}>
-        <Box>
-            <audio controls ref={audioRef} onPlaying={timeline} onProgress={buffer} onLoadedData={setPlayerValues} >
-                <source src={"https://www.listennotes.com/e/p/4e7c59e10e4640b98f2f3cb1777dbb43/"} type="audio/mpeg"/>
+        <Box display={"none"} >
+            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={`./${music}`}>
                 "your browser doesnt support the element"
             </audio>
         </Box>
-        <Box width={"100%"} display={"flex"} justifyContent={"center"} >
-            <Box onClick={pause} width={"32px"} height={"32px"} bg={"rgba(255,255,255,0.9)"} display={"flex"} justifyContent={"center"} alignItems={"center"} borderRadius={"50%"} >
-                <Icon as={ paused ? FaPlay:FaPause} color={"rose.500"} boxSize={3}/>
-            </Box>
-        </Box>
+        <Controls handlePause={pause} paused={paused} ref={audioRef}/>
 
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-
-            <Box display={"flex"} fontSize={"12px"} fontWeight={500} marginRight={"6px"} minW={"30px"}>
-                {Math.floor(position) / 60 < 10 && <Text>0</Text> }
-                <Text>{Math.floor(position/60)}</Text>
-                <Text>:</Text>
-                {Math.floor(position) % 60 < 10 && <Text>0</Text>}
-                <Text>{Math.floor(position) % 60}</Text>
-            </Box>
-            
-            <Box bg={"rgba(255,255,255,0.2)"} height={"3px"} overflow={"hidden"} width={"50%"} marginRight={"24px"}>
-                {/* <Progress value={buffered} max={100} width={"100%"} m={0} h={"15px"} colorScheme='rose'/> */}
-                <Box width={`${buffered}%`} height={"15px"} bg={"rgba(255,255,255,0.4)"}></Box>
-                <Input type='range' onChange={positionControl} value={position}  max={length} min={0} position={"relative"} top={"-18px"}/>
-                
-            </Box>
-            {length}
-
-            <Box display={"flex"} alignItems={"center"} >
-                <Icon as={ muted ? FaVolumeMute : FaVolumeUp} onClick={mute} marginRight={"6px"}/>
-                <Box bg={"rgba(255,255,255,0.2)"} height={"3px"} overflow={"hidden"} display={"flex"} alignItems={"center"} width={"80px"}>
-                    <Input type='range' onChange={volumeControl} value={volume}  max={100} min={0}/>
-                </Box>
-            </Box>
+            <TimeLine ref={audioRef}/>
+            <VolumeControl handleVolume={volumeControl} mute={mute} muted={muted} volume={volume}/>
         </Box>
-
-        {/* <Select onChange={speed} value={playbackRate}>
-            <option value={0.5}>0.5</option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-        </Select> */}
     </Box>
   )
 }

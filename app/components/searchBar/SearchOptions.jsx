@@ -1,6 +1,7 @@
 import { Box, Checkbox, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import React from 'react'
 import { FaCogs } from 'react-icons/fa'
+import InputRange from '../inputs/range/InputRange'
 
 export default function SearchOptions() {
   return (
@@ -12,6 +13,7 @@ export default function SearchOptions() {
                     <Box height={"500px"} padding={"18px"}>
                         <Checkbox>sort by date</Checkbox>
                         
+                        <InputRange min={0} max={15}/>
                     </Box>
             </MenuList>
         </Menu>

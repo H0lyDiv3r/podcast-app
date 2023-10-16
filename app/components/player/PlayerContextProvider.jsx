@@ -1,0 +1,164 @@
+'use client'
+import React, { createContext, useReducer } from 'react'
+
+export const PlayerContext = createContext()
+
+const initialState = {
+  paused:true,
+  volume : 0.2,
+  buffered : 0,
+  position : 0,
+  playbackRate:1,
+  muted:false,
+  length:0,
+  loaded:false,
+  currentTrack:'test.mp3'
+}
+
+const togglePause = 'TOGGLE_PAUSE'
+const setVolume = 'SET_VOLUME'
+const setPosition = 'SET_POSITION'
+const setPlaybackRate = 'SET_PLAYBACK_RATE'
+const setMute = 'SET_MUTE'
+const toggleMute = 'TOGGLE_MUTE'
+const setLength = 'SET_LENGTH'
+const setLoaded = 'SET_LOADED'
+const setCurrentTrack = 'SET_CURRENT_TRACK'
+
+const reducer = (state,action)=>{
+    if(action.type === togglePause) return {...state,paused:!state.paused}
+    if(action.type === setVolume) return {...state,volume:action.payload.volume}
+    if(action.type === setPosition) return {...state,position:action.payload.position}
+    if(action.type === setPlaybackRate) return {...state,playbackRate:action.payload.playbackRate}
+    if(action.type === setMute) return {...state,muted:action.payload.mute}
+    if(action.type === toggleMute) return {...state,muted:!state.muted}
+    if(action.type === setLength) return {...state,length:action.payload.len}
+    if(action.type === setLoaded) return {...state,loaded:action.payload.loaded}
+    if(action.type === setCurrentTrack) return {...state,currentTrack:action.payload.track}
+    return state;
+}
+
+const PlayerContextProvider = ({children}) => {
+  const [state,dispatch] = useReducer(reducer,initialState)
+  // const [volume,setVolume] = useState(initialState.volume * 100)
+  // const [buffered,setBuffered] = useState(initialState.buffered)
+  // const [position,setPosition] = useState(initialState.position)
+  // const [playbackRate,setPlaybackRate] = useState(initialState.playbackRate)
+  // const [paused,setPaused] = useState(initialState.paused)
+  // const [muted,setMuted] = useState(initialState.muted)
+  // const [length,setLength] = useState(2447)
+  // const [loaded,setLoaded] = useState(false)
+  // const [music,setMusic] = useState("test.mp3")
+
+  const handlePlay = (ref)=>{
+    if(ref.current.paused){
+      ref.current.play()
+      dispatch({type:togglePause})
+    }else{
+        ref.current.pause()
+        dispatch({type:togglePause})
+    }
+  }
+
+  const handleMute = (ref)=>{
+    if(ref.current.muted){
+      ref.current.muted = false
+      dispatch({type:toggleMute})
+    }else{
+        ref.current.muted = true
+        dispatch({type:toggleMute})
+    }
+  }
+
+  const handleVolume = (e,ref)=>{
+    ref.current.volume = e.target.value / 100
+    dispatch({
+      type:setVolume,
+      payload:{
+        volume:e.target.value
+      }
+    })
+    dispatch({
+      type:setMute,
+      payload:{
+        mute:false
+      }
+    })
+    if(e.target.value / 100 == 0){
+      dispatch({
+        type:setMute,
+        payload:{
+          mute:true
+        }
+      })
+    }
+  }
+
+  const handleTimeline = (ref)=>{
+    const interval = setInterval(()=>{
+      dispatch({
+        type:setPosition,
+        payload:{
+          position:ref.current.currentTime
+        }
+      })
+    },1000)
+    setTimeout(()=>{
+    clearInterval(interval)
+    },1000 * (ref.current.duration - ref.current.currentTime))
+  }
+
+  const handlePlaybackRate = (e,ref)=>{
+    dispatch({
+      type:setPlaybackRate,
+      payload:{
+        playbackRate:e.target.value
+      }
+    })
+    ref.current.playbackRate = e.target.value
+  }
+
+  const handlePosition = (e,ref)=>{
+    if(ref.current){
+      ref.current.currentTime = e.target.value
+      dispatch({
+        type:handlePosition,
+        payload:{
+          position:e.target.value
+        }
+      })
+    }
+  }
+
+  
+
+  const setPlayerValues = (ref)=>{
+
+    ref.current.volume = state.volume /100
+    ref.current.currentTime = state.position
+    ref.current.playbackRate = state.playbackRate
+    ref.current.muted = state.muted
+    if(state.paused){
+        ref.current.pause()
+    }else{
+        ref.current.play()
+    }
+    dispatch({
+      type:setLoaded,
+      payload:{
+        loaded:true
+      }
+    })
+  } 
+
+
+  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume}
+
+  return (
+    <PlayerContext.Provider value={vals}>
+        {children}
+    </PlayerContext.Provider>
+  )
+}
+
+export default PlayerContextProvider
