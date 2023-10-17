@@ -23,7 +23,7 @@ const initialState = {
 
 export default function Player() {
 
-    const {handlePlay,handleTimeline} = useContext(PlayerContext)
+    const {currentTrack,handleTimeline,handleSetCurrentTrack} = useContext(PlayerContext)
     const [volume,setVolume] = useState(initialState.volume * 100)
     const [buffered,setBuffered] = useState(initialState.buffered)
     const [position,setPosition] = useState(initialState.position)
@@ -113,15 +113,15 @@ export default function Player() {
   return (
     <Box bg={"rose.500"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"white"}>
         <Box display={"none"} >
-            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={`./${music}`}>
+            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={`./${currentTrack}`}>
                 "your browser doesnt support the element"
             </audio>
         </Box>
         <Controls handlePause={pause} paused={paused} ref={audioRef}/>
+        <Button onClick={()=>handleSetCurrentTrack("test1.mp3")}>next</Button>
 
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
             <TimeLine ref={audioRef}/>
-            <VolumeControl handleVolume={volumeControl} mute={mute} muted={muted} volume={volume}/>
         </Box>
     </Box>
   )

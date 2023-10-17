@@ -1,14 +1,18 @@
 import { Box, Icon, Input } from '@chakra-ui/react'
-import React from 'react'
+import React, { forwardRef, useContext } from 'react'
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
+import { PlayerContext } from './PlayerContextProvider'
 
-export default function VolumeControl({handleVolume,volume,muted,mute}) {
+const VolumeControl = forwardRef( ({},ref)=>{
+  const {handleVolume,volume,muted,handleMute}= useContext(PlayerContext)
   return (
         <Box display={"flex"} alignItems={"center"}>
-            <Icon as={ muted ? FaVolumeMute : FaVolumeUp} onClick={mute} marginRight={"6px"}/>
+            <Icon as={ muted ? FaVolumeMute : FaVolumeUp} onClick={()=>handleMute(ref)} marginRight={"6px"}/>
             <Box bg={"rgba(255,255,255,0.2)"} height={"3px"} overflow={"hidden"} display={"flex"} alignItems={"center"} width={"80px"}>
-                <Input type='range' onChange={handleVolume} value={volume}  max={100} min={0}/>
+                <Input type='range' onChange={(e)=>handleVolume(e,ref)} value={volume}  max={100} min={0}/>
             </Box>
         </Box>
   )
-}
+})
+
+export default VolumeControl

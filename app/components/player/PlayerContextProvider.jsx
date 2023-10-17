@@ -16,6 +16,7 @@ const initialState = {
 }
 
 const togglePause = 'TOGGLE_PAUSE'
+const togglePlay = 'TOGGLE_PLAY'
 const setVolume = 'SET_VOLUME'
 const setPosition = 'SET_POSITION'
 const setPlaybackRate = 'SET_PLAYBACK_RATE'
@@ -26,7 +27,8 @@ const setLoaded = 'SET_LOADED'
 const setCurrentTrack = 'SET_CURRENT_TRACK'
 
 const reducer = (state,action)=>{
-    if(action.type === togglePause) return {...state,paused:!state.paused}
+    if(action.type === togglePause) return {...state,paused:true}
+    if(action.type === togglePlay) return {...state,paused:false}
     if(action.type === setVolume) return {...state,volume:action.payload.volume}
     if(action.type === setPosition) return {...state,position:action.payload.position}
     if(action.type === setPlaybackRate) return {...state,playbackRate:action.payload.playbackRate}
@@ -53,7 +55,7 @@ const PlayerContextProvider = ({children}) => {
   const handlePlay = (ref)=>{
     if(ref.current.paused){
       ref.current.play()
-      dispatch({type:togglePause})
+      dispatch({type:togglePlay})
     }else{
         ref.current.pause()
         dispatch({type:togglePause})
@@ -130,7 +132,15 @@ const PlayerContextProvider = ({children}) => {
     }
   }
 
-  
+  const handleSetCurrentTrack = (value)=>{
+    dispatch({
+      type:setCurrentTrack,
+      payload:{
+        track:value
+      }
+    })
+    dispatch({type:togglePause})
+  }
 
   const setPlayerValues = (ref)=>{
 
@@ -152,7 +162,7 @@ const PlayerContextProvider = ({children}) => {
   } 
 
 
-  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume}
+  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack}
 
   return (
     <PlayerContext.Provider value={vals}>
