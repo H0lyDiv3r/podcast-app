@@ -15,32 +15,32 @@ const speed = [
         value:0.5
     },
     {
-        id:1,
+        id:2,
         name:0.75,
         value:0.75
     },
     {
-        id:2,
-        name:"Normal",
+        id:3,
+        name:1,
         value:1
     },
     {
-        id:3,
+        id:4,
         name:1.25,
         value:1.25
     },
     {
-        id:4,
+        id:5,
         name:1.5,
         value:1.5
     },
     {
-        id:5,
+        id:6,
         name:1.75,
         value:1.75
     },
     {
-        id:6,
+        id:7,
         name:2,
         value:2
     },
@@ -59,13 +59,12 @@ const PlaybackRateControl = forwardRef( ({},ref) => {
     <>
     <Menu>
         {speed.map(val=>
-            // <MenuButton key={val.id}>{value==val.value && val.name}</MenuButton>
-            <MenuButton>{playbackRate == val.value && val.name}</MenuButton>
+            <MenuButton key={val.id}>{playbackRate == val.value && val.name}</MenuButton>
         )}
     
         <MenuList>
         {speed.map(val=>
-                <MenuItem key={val.id} id={val.id} onClick={()=>handlePlaybackRate(val.value,ref)}>{val.name}</MenuItem>
+                <MenuItem key={val.id} id={val.id} onClick={()=>handlePlaybackRate(val.value,ref)} bg={val.value == playbackRate && "roseTrans.100"} color={val.value == playbackRate && "white.900"} >{val.name}</MenuItem>
                )}
         </MenuList>
     </Menu>
