@@ -5,7 +5,7 @@ export const PlayerContext = createContext()
 
 const initialState = {
   paused:true,
-  volume : 0.2,
+  volume : 0,
   buffered : 0,
   position : 0,
   playbackRate:1,
@@ -42,15 +42,6 @@ const reducer = (state,action)=>{
 
 const PlayerContextProvider = ({children}) => {
   const [state,dispatch] = useReducer(reducer,initialState)
-  // const [volume,setVolume] = useState(initialState.volume * 100)
-  // const [buffered,setBuffered] = useState(initialState.buffered)
-  // const [position,setPosition] = useState(initialState.position)
-  // const [playbackRate,setPlaybackRate] = useState(initialState.playbackRate)
-  // const [paused,setPaused] = useState(initialState.paused)
-  // const [muted,setMuted] = useState(initialState.muted)
-  // const [length,setLength] = useState(2447)
-  // const [loaded,setLoaded] = useState(false)
-  // const [music,setMusic] = useState("test.mp3")
 
   const handlePlay = (ref)=>{
     if(ref.current.paused){
@@ -110,14 +101,14 @@ const PlayerContextProvider = ({children}) => {
     },1000 * (ref.current.duration - ref.current.currentTime))
   }
 
-  const handlePlaybackRate = (e,ref)=>{
+  const handlePlaybackRate = (value,ref)=>{
     dispatch({
       type:setPlaybackRate,
       payload:{
-        playbackRate:e.target.value
+        playbackRate:value
       }
     })
-    ref.current.playbackRate = e.target.value
+    ref.current.playbackRate = value
   }
 
   const handlePosition = (e,ref)=>{
@@ -142,9 +133,9 @@ const PlayerContextProvider = ({children}) => {
     dispatch({type:togglePause})
   }
 
-  const setPlayerValues = (ref)=>{
+  const handleSetPlayerValues = (ref)=>{
 
-    ref.current.volume = state.volume /100
+    ref.current.volume = state.volume/100
     ref.current.currentTime = state.position
     ref.current.playbackRate = state.playbackRate
     ref.current.muted = state.muted
@@ -159,10 +150,11 @@ const PlayerContextProvider = ({children}) => {
         loaded:true
       }
     })
+    console.log("finished loading")
   } 
 
 
-  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack}
+  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack,handleSetPlayerValues}
 
   return (
     <PlayerContext.Provider value={vals}>

@@ -15,7 +15,7 @@ const TimeLine = forwardRef(({buffered},ref)=> {
                 <Text>{Math.floor(position) % 60}</Text>
             </Box>
             
-            <Box bg={"rgba(255,255,255,0.2)"} height={"3px"} overflow={"hidden"} width={"300px"} >
+            <Box bg={"roseTrans.200"} height={"3px"} overflow={"hidden"} width={"300px"} >
                 {/* <Progress value={buffered} max={100} width={"100%"} m={0} h={"15px"} colorScheme='rose'/> */}
                 <Box width={`${buffered}%`} height={"15px"} bg={"rgba(255,255,255,0.4)"}></Box>
                 <Input type='range' onChange={(e)=>handlePosition(e,ref)} value={position}  max={200} min={0} position={"relative"} top={"-18px"}/>
