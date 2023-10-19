@@ -8,7 +8,7 @@ const VolumeControl = forwardRef( ({},ref)=>{
   return (
         <Box display={"flex"} alignItems={"center"}>
             <Icon as={ muted ? FaVolumeMute : FaVolumeUp} onClick={()=>handleMute(ref)} marginRight={"6px"}/>
-            <Box bg={"roseTrans.200"} height={"3px"} overflow={"hidden"} display={"flex"} alignItems={"center"} width={"80px"}>
+            <Box bg={"roseTrans.200"} height={"4px"} overflow={"hidden"} display={"flex"} alignItems={"center"} width={"60px"}>
                 <Input type='range' onChange={(e)=>handleVolume(e,ref)} value={volume}  max={100} min={0}/>
             </Box>
         </Box>

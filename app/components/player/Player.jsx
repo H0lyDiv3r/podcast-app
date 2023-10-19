@@ -28,15 +28,22 @@ export default function Player() {
     },[])
 
   return (
-    <Box bg={"white.900"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"rose.500"}>
+    <Box display={"flex"} bg={"white.900"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"rose.500"}>
         <Box display={"none"} >
             <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={"https://www.listennotes.com/e/p/4e7c59e10e4640b98f2f3cb1777dbb43/"} onLoadedData={()=>handleSetPlayerValues(audioRef)}>
                 "your browser doesnt support the element"
             </audio>
         </Box>
-        <Controls ref={audioRef}/>
-        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-            <TimeLine ref={audioRef}/>
+        <Box height={"100%"} width={"100px"}>
+            <Text>title title</Text>
+        </Box>
+        <Box width={"100%"}>
+
+            <Controls ref={audioRef}/>
+            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                <TimeLine ref={audioRef}/>
+            </Box>
+
         </Box>
     </Box>
   )

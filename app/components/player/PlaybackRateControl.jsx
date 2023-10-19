@@ -1,7 +1,8 @@
 import React,{forwardRef, useContext, useState} from 'react'
 import Select from '../inputs/select/Select'
-import { Menu, MenuButton, MenuItem, MenuList,Box,Text } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuItem, MenuList,Box,Text, Icon } from '@chakra-ui/react'
 import { PlayerContext } from './PlayerContextProvider'
+import { FaTimes } from 'react-icons/fa'
 
 const speed = [
     {
@@ -48,26 +49,28 @@ const speed = [
 ]
 
 const PlaybackRateControl = forwardRef( ({},ref) => {
-    const [isOpen,setIsOpen] = useState(false)
-    const [value,setValue] = useState(speed[0].value)
     const {handlePlaybackRate,playbackRate} = useContext(PlayerContext)
-    const onChange = (val)=>{
-        setValue(val.id)
-        handleChange(val)
-    }
   return (
     <>
-    <Menu>
-        {speed.map(val=>
-            <MenuButton key={val.id}>{playbackRate == val.value && val.name}</MenuButton>
-        )}
-    
-        <MenuList>
-        {speed.map(val=>
-                <MenuItem key={val.id} id={val.id} onClick={()=>handlePlaybackRate(val.value,ref)} bg={val.value == playbackRate && "roseTrans.100"} color={val.value == playbackRate && "white.900"} >{val.name}</MenuItem>
-               )}
-        </MenuList>
-    </Menu>
+    <Box>
+        <Menu offset={[100,30]}>
+            {speed.map(val=>
+                <Box>
+                    {playbackRate == val.value && <MenuButton key={val.id} minWidth={"40px"} bg={'rose.50'} borderY={"solid 2px red"} fontSize={"14px"} fontWeight={500}>X {playbackRate}</MenuButton>}
+                </Box>
+            )}
+        
+            <MenuList>
+            {speed.map(val=>
+                    <MenuItem key={val.id} id={val.id} 
+                        onClick={()=>handlePlaybackRate(val.value,ref)} 
+                        bg={val.value == playbackRate && "roseTrans.200"} 
+                        color={val.value == playbackRate && "white.900"} 
+                        >{val.name}</MenuItem>
+                )}
+            </MenuList>
+        </Menu>
+    </Box>
 
     </>
   )
