@@ -1,3 +1,4 @@
+
 import Image from 'next/image'
 import styles from './page.module.css'
 import Player from './components/player/Player'
@@ -6,6 +7,8 @@ import Episode from './components/cards/Episode'
 import { Box } from '@chakra-ui/react'
 import SearchBar from './components/searchBar/SearchBar'
 import PlayerContextProvider from './components/player/PlayerContextProvider'
+import Navbar from './components/nav/Navbar'
+import FormInput from './components/inputs/formInput/FormInput'
 
 
 export default async function Home() {
@@ -13,6 +16,7 @@ export default async function Home() {
   const data = await res.json()
   return (
     <main>
+      <Navbar/>
       <SearchBar/>
       <PlayerContextProvider>
         <Player/>

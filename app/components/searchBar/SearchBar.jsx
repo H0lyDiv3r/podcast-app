@@ -10,11 +10,15 @@ export default function SearchBar() {
   const handleChange = (e)=>{
     console.log("changed")
   }
+  const vals = {
+    "episode":"Episode",
+    "podcast":"Podcast"
+  }
   return (
     <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"space-around"}>
         <Search/>
         <Box width={"100px"}>
-          <Select values={[{id:1,name:"podcasts"},{id:2,name:"Episodes"}]} handleChange={(val)=>console.log(val)}/>
+          <Select values={vals} handleChange={(val)=>console.log(val)}/>
         </Box>
         <SearchOptions/>
     </Box>    

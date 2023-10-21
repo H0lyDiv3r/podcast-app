@@ -55,8 +55,8 @@ const PlaybackRateControl = forwardRef( ({},ref) => {
     <Box>
         <Menu offset={[100,30]}>
             {speed.map(val=>
-                <Box>
-                    {playbackRate == val.value && <MenuButton key={val.id} minWidth={"40px"} bg={'rose.50'} borderY={"solid 2px red"} fontSize={"14px"} fontWeight={500}>X {playbackRate}</MenuButton>}
+                <Box key={val.id}>
+                    {playbackRate == val.value && <MenuButton minWidth={"40px"} bg={'rose.50'} borderY={"solid 2px red"} fontSize={"14px"} fontWeight={500}>X {playbackRate}</MenuButton>}
                 </Box>
             )}
         

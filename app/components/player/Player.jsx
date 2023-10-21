@@ -30,7 +30,7 @@ export default function Player() {
   return (
     <Box display={"flex"} bg={"white.900"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"rose.500"}>
         <Box display={"none"} >
-            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={"https://www.listennotes.com/e/p/4e7c59e10e4640b98f2f3cb1777dbb43/"} onLoadedData={()=>handleSetPlayerValues(audioRef)}>
+            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={`./${currentTrack}`} onLoadedData={()=>handleSetPlayerValues(audioRef)}>
                 "your browser doesnt support the element"
             </audio>
         </Box>

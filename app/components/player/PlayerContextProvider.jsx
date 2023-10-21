@@ -153,8 +153,16 @@ const PlayerContextProvider = ({children}) => {
     console.log("finished loading")
   } 
 
+  const handleFastForward = (ref)=>{
+    ref.current.currentTime += 10
+  }
 
-  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack,handleSetPlayerValues}
+  const handleFastBackward = (ref)=>{
+    ref.current.currentTime -= 10
+  }
+
+
+  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack,handleSetPlayerValues,handleFastForward,handleFastBackward}
 
   return (
     <PlayerContext.Provider value={vals}>
