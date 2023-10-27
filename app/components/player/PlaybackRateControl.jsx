@@ -47,6 +47,12 @@ const speed = [
     },
     
 ]
+// const speed = {
+//     0.5:0.5,
+//     1:1,
+//     1.5:1.5,
+//     2:2
+// }
 
 const PlaybackRateControl = forwardRef( ({},ref) => {
     const {handlePlaybackRate,playbackRate} = useContext(PlayerContext)
@@ -56,7 +62,7 @@ const PlaybackRateControl = forwardRef( ({},ref) => {
         <Menu offset={[100,30]}>
             {speed.map(val=>
                 <Box key={val.id}>
-                    {playbackRate == val.value && <MenuButton minWidth={"40px"} bg={'rose.50'} borderY={"solid 2px red"} fontSize={"14px"} fontWeight={500}>X {playbackRate}</MenuButton>}
+                    {playbackRate == val.value && <MenuButton minWidth={"45px"} bg={'rose.50'} borderY={"solid 2px red"} fontSize={"14px"} fontWeight={500}>X {playbackRate}</MenuButton>}
                 </Box>
             )}
         
@@ -71,6 +77,7 @@ const PlaybackRateControl = forwardRef( ({},ref) => {
             </MenuList>
         </Menu>
     </Box>
+    {/* <Select values={speed} val={playbackRate} onChange={()=>console.log("screw you")} padding={"10px"}/> */}
 
     </>
   )

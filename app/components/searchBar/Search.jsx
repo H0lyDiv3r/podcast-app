@@ -7,7 +7,7 @@ export default function Search() {
   return (
     <Box width={"70%"}>
         <FormControl >
-            <InputGroup size={"sm"}>
+            <InputGroup>
                 <Input type={"text"} borderRadius={"4px"} placeholder={"search..."}/>
                 <InputRightElement><i><FaSearch/></i></InputRightElement>
             </InputGroup>

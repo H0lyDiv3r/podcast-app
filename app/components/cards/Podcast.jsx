@@ -8,7 +8,7 @@ export default function Podcast({data}) {
   return (
     <Card bg={"rose.400"} minW={"170px"} maxW={"200px"} height={"200px"} 
           bgImage={data.thumbnail}  bgSize={"cover"} bgPos={"center"} 
-          color={"white.900"} overflow={"hidden"} margin={"10px"}>
+          color={"white.900"} overflow={"hidden"} margin={"10px"} zIndex={-1}>
             
         <Box width={"100%"} height={"100%"} bg={"black.700"} padding={"10px"} backdropFilter={"blur(1.5px)"} display={"flex"} flexDir={"column"} justifyContent={"space-between"}>
 

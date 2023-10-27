@@ -7,7 +7,6 @@ import InputMultiple from '../inputs/multipleInput/InputMultiple'
 
 export default function SearchOptions() {
   const {onOpen,onClose,isOpen} = useDisclosure()
-  console.log(regions[Object.keys(regions)[1]])
   return (
     <Box>
       <Button onClick={onOpen}>Filter</Button>

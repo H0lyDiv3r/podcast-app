@@ -1,5 +1,5 @@
 'use client'
-import { Box,Icon,Button,Spinner, Spacer } from '@chakra-ui/react'
+import { Box,Icon,Button,Spinner, Spacer,Text } from '@chakra-ui/react'
 import React,{forwardRef, useContext, useRef} from 'react'
 import { FaBackward, FaFastBackward, FaFastForward, FaForward, FaPause, FaPlay } from 'react-icons/fa'
 import ButtonDefault from '../inputs/buttons/ButtonDefault'
@@ -7,7 +7,6 @@ import { PlayerContext } from './PlayerContextProvider'
 import VolumeControl from './VolumeControl'
 import { IconButton } from '../Buttons/Buttons'
 import PlaybackRateControl from './PlaybackRateControl'
-import FormInput from '../inputs/formInput/FormInput'
 
 const Controls = forwardRef( ({},ref) => {
   const {handlePlay,paused,loaded,handleFastForward,handleFastBackward} = useContext(PlayerContext)

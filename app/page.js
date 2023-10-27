@@ -21,14 +21,14 @@ export default async function Home() {
       <PlayerContextProvider>
         <Player/>
       </PlayerContextProvider>
-        {/* <Box display={"flex"}>
+        <Box display={"flex"}>
 
           {data.podcasts.podcasts.map(podcast =>
             <Podcast key={podcast.id}  data={podcast}/>
           )}
-        </Box> */}
+        </Box>
         
-        {/* <Episode/> */}
+        <Episode/>
     </main>
   )
 }

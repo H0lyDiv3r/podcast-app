@@ -1,5 +1,7 @@
+
 import { Box,Card, Text } from '@chakra-ui/react'
 import React from 'react'
+import TextInnerHtml from '../text/TextInnerHtml'
 
 export default function Episode() {
     const data = {
@@ -18,20 +20,44 @@ export default function Episode() {
             "maybe_audio_invalid":false,
             "listennotes_edit_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/#edit"
         }
+        const date =  Date.now()
+        const calculate = (start)=>{
+            const seconds = 1000
+            const minutes = seconds * 60
+            const hours = minutes * 60
+            const days = hours * 24
+            const month = days * 30
+            const year = month * 12
+            const difference = (date.valueOf() - start.valueOf())
+                
+            if(difference/year >= 1){
+                return `${Math.round(difference/year) == 1 ? 'A year ago' : `${Math.round(difference/year)} years ago` }`
+            }
+            if(difference/month >= 1 && difference/month < 12){
+                return `${Math.round(difference/month) == 1 ? 'A month ago' : `${Math.round(difference/days)} months ago` }`
+            }
+            if(difference/days >= 1 && difference/days < 30){
+                return `${Math.round(difference/days) == 1 ? 'A day ago' : `${Math.round(difference/days)} days ago` }`
+            }
+            if(difference/hours >= 1 && difference/hours < 24){
+                return `${Math.round(difference/hours) == 1 ? 'An hour ago' : `${Math.round(difference/hours)} hours ago` }`
+            }
+            if(difference/minutes >= 1 && difference/minutes < 60){
+                return `${Math.round(difference/minutes) == 1 ? 'A minute ago' : `${Math.round(difference/minutes)} minute ago` }`
+            }
+            if(difference/seconds < 60){
+                return ("Just now")
+            }else{
+                return ("Some time ago")
+            }
+          }
 
   return (
-        <Card bg={"rose.400"} minW={"100px"} maxW={"170px"} height={"200px"} 
-            bgImage={"./template.jpg"}  bgSize={"cover"} bgPos={"center"} 
-            color={"white.900"} overflow={"hidden"} margin={"10px"}>
-
-                <Box width={"100%"} height={"100%"} bg={"black.500"} padding={"10px"} 
-                    backdropFilter={"blur(1.5px)"} display={"flex"} flexDir={"column"} justifyContent={"space-between"}>
-
-                    <Text fontSize={"md"}>{data.title}</Text>
-                    {/* <Text fontSize={"xs"}>{data.description}</Text> */}
-                    <Text>{new Date(data.pub_date_ms).getFullYear()}</Text>
-                </Box>
-
-        </Card>
+        <Box>
+            {calculate(data.pub_date_ms)}
+            {/* <Text>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</Text> */}
+            <Text>{data.title}</Text>
+            <TextInnerHtml text={data.description.slice(0,100)}/>
+        </Box>
   )
 }

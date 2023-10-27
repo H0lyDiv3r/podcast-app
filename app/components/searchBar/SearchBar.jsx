@@ -5,6 +5,7 @@ import Search from './Search'
 import TypeInput from './TypeInput'
 import SearchOptions from './SearchOptions'
 import Select from '../inputs/select/Select'
+import colors from '@/app/theme/colors'
 
 export default function SearchBar() {
   const handleChange = (e)=>{
@@ -18,7 +19,9 @@ export default function SearchBar() {
     <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"space-around"}>
         <Search/>
         <Box width={"100px"}>
-          <Select values={vals} handleChange={(val)=>console.log(val)}/>
+            <Select values={vals} handleChange={(val)=>console.log(val)} 
+                padding={"5px"} bg={"white.900"} color={"rose.500"} 
+                borderRadius={"5px"} border={`solid 1px ${colors.gray[200]}`}/>
         </Box>
         <SearchOptions/>
     </Box>    
