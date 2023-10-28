@@ -1,7 +1,10 @@
 
-import { Box,Card, Text } from '@chakra-ui/react'
+import { Box,Card, Icon, Text } from '@chakra-ui/react'
 import React from 'react'
 import TextInnerHtml from '../text/TextInnerHtml'
+import { calculate } from '@/app/utils/compareDates'
+import { secondsToHours } from '@/app/utils/secondsToHours'
+import { FaPlayCircle } from 'react-icons/fa'
 
 export default function Episode() {
     const data = {
@@ -15,49 +18,36 @@ export default function Episode() {
             "pub_date_ms":1479110402345,
             "guid_from_rss":"bbada2b3a99054ce93b0eb95dd762b4d",
             "listennotes_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/",
-            "audio_length_sec":2447,
+            "audio_length_sec":7000,
             "explicit_content":false,
             "maybe_audio_invalid":false,
             "listennotes_edit_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/#edit"
         }
-        const date =  Date.now()
-        const calculate = (start)=>{
-            const seconds = 1000
-            const minutes = seconds * 60
-            const hours = minutes * 60
-            const days = hours * 24
-            const month = days * 30
-            const year = month * 12
-            const difference = (date.valueOf() - start.valueOf())
-                
-            if(difference/year >= 1){
-                return `${Math.round(difference/year) == 1 ? 'A year ago' : `${Math.round(difference/year)} years ago` }`
-            }
-            if(difference/month >= 1 && difference/month < 12){
-                return `${Math.round(difference/month) == 1 ? 'A month ago' : `${Math.round(difference/days)} months ago` }`
-            }
-            if(difference/days >= 1 && difference/days < 30){
-                return `${Math.round(difference/days) == 1 ? 'A day ago' : `${Math.round(difference/days)} days ago` }`
-            }
-            if(difference/hours >= 1 && difference/hours < 24){
-                return `${Math.round(difference/hours) == 1 ? 'An hour ago' : `${Math.round(difference/hours)} hours ago` }`
-            }
-            if(difference/minutes >= 1 && difference/minutes < 60){
-                return `${Math.round(difference/minutes) == 1 ? 'A minute ago' : `${Math.round(difference/minutes)} minute ago` }`
-            }
-            if(difference/seconds < 60){
-                return ("Just now")
-            }else{
-                return ("Some time ago")
-            }
-          }
+    const audioLength = secondsToHours(data.audio_length_sec)
 
   return (
-        <Box>
-            {calculate(data.pub_date_ms)}
+        <Box color={"gray.600"} width={"800px"}>
+            <Text fontSize={"14"}>{calculate(data.pub_date_ms)}</Text>
             {/* <Text>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</Text> */}
-            <Text>{data.title}</Text>
-            <TextInnerHtml text={data.description.slice(0,100)}/>
+            <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
+            <TextInnerHtml text={data.description} slice={250} fontSize={"16px"}/>
+
+            <Box display={"flex"} marginTop={"14px"}>
+                <Box display={"flex"} justifyContent={"space-around"} alignItems={"center"} padding={"6px"} bg={"rose.500"} 
+                    maxW={"150px"} minW={"150px"} fontSize={"14px"} color={"white"} fontWeight={400} borderRadius={"16px"}>
+                    <FaPlayCircle fontSize={"20px"}/>
+                    <Box>Play</Box>
+                    <Box display={"flex"}>
+                        {Boolean(audioLength.hrs.value) &&
+                            <Text px={"4px"}>{audioLength.hrs.value}{audioLength.hrs.tag}</Text>
+                        }
+                        {Boolean(audioLength.mins.value) &&
+                            <Text>{audioLength.mins.value}{audioLength.mins.tag}</Text>
+                        }
+                    </Box>
+                </Box>
+            </Box>
+            
         </Box>
   )
 }
