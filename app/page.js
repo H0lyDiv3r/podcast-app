@@ -4,7 +4,7 @@ import styles from './page.module.css'
 import Player from './components/player/Player'
 import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
-import { Box } from '@chakra-ui/react'
+import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
 import SearchBar from './components/searchBar/SearchBar'
 import PlayerContextProvider from './components/player/PlayerContextProvider'
 import Navbar from './components/nav/Navbar'
@@ -16,19 +16,34 @@ export default async function Home() {
   const data = await res.json()
   return (
     <main>
-      <Navbar/>
-      <SearchBar/>
-      <PlayerContextProvider>
-        <Player/>
-      </PlayerContextProvider>
-        <Box display={"flex"}>
+      
+      <SearchBar/>  
+      <Grid templateColumns={"repeat(12,1fr)"}>
 
-          {data.podcasts.podcasts.map(podcast =>
-            <Podcast key={podcast.id}  data={podcast}/>
-          )}
-        </Box>
+        <GridItem colSpan={"1"}>
+
+        </GridItem>
+
+        <GridItem colSpan={"8"}>
+            <SimpleGrid minChildWidth={"170px"} spacing={10} width={"100%"} overflow={"auto"}>
+
+              {data.podcasts.podcasts.map(podcast =>
+                <Podcast key={podcast.id}  data={podcast}/>
+              )}
+            </SimpleGrid>
+          <Episode/>
+        </GridItem>
+
+        <GridItem colSpan={"12"}>
+          <PlayerContextProvider>
+            <Player/>
+          </PlayerContextProvider>
+        </GridItem>
+
+      </Grid>
+
+
         
-        <Episode/>
     </main>
   )
 }

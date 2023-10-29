@@ -16,7 +16,7 @@ export default function SearchBar() {
     "podcast":"Podcast"
   }
   return (
-    <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"space-around"}>
+    <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"space-between"} py={"14px"} position={"sticky"} top={"0"} bg={"white"} boxShadow={"md"}>
         <Search/>
         <Box width={"100px"}>
             <Select values={vals} handleChange={(val)=>console.log(val)} 

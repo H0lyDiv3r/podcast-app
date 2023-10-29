@@ -1,5 +1,8 @@
-const date =  Date.now()
-export const calculate = (start)=>{
+
+export const calculate =async (start)=>{
+    const res = await fetch("http://worldtimeapi.org/api/timezone/Etc/GMT")
+    const data = await res.json()
+    const date = new Date(data.utc_datetime).valueOf()
     const seconds = 1000
     const minutes = seconds * 60
     const hours = minutes * 60

@@ -26,7 +26,7 @@ export default function Episode() {
     const audioLength = secondsToHours(data.audio_length_sec)
 
   return (
-        <Box color={"gray.600"} width={"800px"}>
+        <Box color={"gray.600"} width={"100%"}>
             <Text fontSize={"14"}>{calculate(data.pub_date_ms)}</Text>
             {/* <Text>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</Text> */}
             <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
