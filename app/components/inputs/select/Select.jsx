@@ -16,7 +16,7 @@ const Select = ({values,val,handleChange,...otherProps}) => {
 
   return (
 
-        <Box position={"relative"} tabIndex={1} onClick={()=>setIsOpen(!isOpen)} onBlur={()=>setIsOpen(false)} width={"100%"} textAlign={"center"} >
+        <Box position={"relative"} tabIndex={1} onClick={()=>setIsOpen(!isOpen)} onBlur={()=>setIsOpen(false)} textAlign={"center"} >
             <Box {...otherProps}>
                 <Text>{values[value]}</Text>
             </Box>

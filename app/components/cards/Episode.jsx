@@ -1,10 +1,9 @@
-
 import { Box,Card, Icon, Text } from '@chakra-ui/react'
 import React from 'react'
-import TextInnerHtml from '../text/TextInnerHtml'
-import { calculate } from '@/app/utils/compareDates'
+import TextInnerHtml from '../actionWrappersClient/TextInnerHtml'
 import { secondsToHours } from '@/app/utils/secondsToHours'
 import { FaPlayCircle } from 'react-icons/fa'
+import EpisodeDate from '../actionWrappersClient/EpisodeDate'
 
 export default function Episode() {
     const data = {
@@ -27,8 +26,7 @@ export default function Episode() {
 
   return (
         <Box color={"gray.600"} width={"100%"}>
-            <Text fontSize={"14"}>{calculate(data.pub_date_ms)}</Text>
-            {/* <Text>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</Text> */}
+            <EpisodeDate start={data.pub_date_ms}/>
             <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
             <TextInnerHtml text={data.description} slice={250} fontSize={"16px"}/>
 

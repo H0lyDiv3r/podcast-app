@@ -9,10 +9,10 @@ export default function SearchOptions() {
   const {onOpen,onClose,isOpen} = useDisclosure()
   return (
     <Box>
-      <Button onClick={onOpen}>Filter</Button>
+      <Button onClick={onOpen} bg={"none"} _hover={{bg:"none"}}><FaCogs/></Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg={"black.200"}/>
-        <ModalContent bg={"white"} padding={"10px"} height={"500px"} overflow={"auto"} minWidth={"700px"}>
+        <ModalContent bg={"white"} padding={"10px"} height={"540px"} overflow={"auto"} minWidth={"700px"} >
             <ModalCloseButton/>
             <ModalHeader>
               search/sort settings

@@ -16,13 +16,13 @@ export default function SearchBar() {
     "podcast":"Podcast"
   }
   return (
-    <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"space-between"} py={"14px"} position={"sticky"} top={"0"} bg={"white"} boxShadow={"md"}>
+    <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"center"} py={"14px"} >
         <Search/>
-        <Box width={"100px"}>
+        
             <Select values={vals} handleChange={(val)=>console.log(val)} 
-                padding={"5px"} bg={"white.900"} color={"rose.500"} 
-                borderRadius={"5px"} border={`solid 1px ${colors.gray[200]}`}/>
-        </Box>
+                padding={"5px"} bg={"white"} color={"rose.500"} 
+                borderRadius={"5px"} border={`solid 1px ${colors.gray[200]}`} width={"100px"} mx={"10px"}/>
+        
         <SearchOptions/>
     </Box>    
   )

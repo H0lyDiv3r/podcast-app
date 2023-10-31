@@ -1,5 +1,8 @@
 import React from 'react'
 import ActionWrapper from '../components/test/ActionWrapper'
+import Episode from '../components/cards/Episode'
+import PodcastFull from '../components/podcast/PodcastFull'
+
 
 // export const getServerSideProps = async()=>{
 //   console.log("here")
@@ -7,9 +10,9 @@ import ActionWrapper from '../components/test/ActionWrapper'
 
 export default function page({testText}) {
   return (
-    <ActionWrapper>
-
-      <div>test test</div>
-    </ActionWrapper>
+    <>
+      <PodcastFull/>
+      {/* <Episode/> */}
+    </>
   )
 }
