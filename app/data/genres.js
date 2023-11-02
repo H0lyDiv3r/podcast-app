@@ -933,16 +933,13 @@ export const topGenres = [
     }
   
 
-  const getGenre = (id)=>{
-    if(id == 67){
-      return "podcast"
-    }else{
-      return genres.map(genre => {
-          if(id == genre.id){
-              return genre.name
-          }
-      })
-    }
+  const getGenre = (arrayOfIds)=>{
+    const g = genres.map(genre => genre.id)
+    const genreNames = []
+    arrayOfIds.map(genre=>
+        genreNames.push(Object.values(genres)[g.indexOf(genre)].name)
+        )
+    return genreNames
   }
 
   export default getGenre;

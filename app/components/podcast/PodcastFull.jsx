@@ -1,8 +1,11 @@
+'use client'
 import { Box, Text,Image } from '@chakra-ui/react'
 import React from 'react'
 import TextInnerHtml from '../actionWrappersClient/TextInnerHtml'
 import CustomLink from '../links/CustomLink'
-import { FaAmazon, FaFacebookF, FaGlobe, FaGoogle, FaInstagram, FaLinkedin, FaPatreon, FaSpotify, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaAmazon, FaEnvelope, FaFacebookF, FaGlobe, FaGoogle, FaInstagram, FaLinkedin, FaPatreon, FaSpotify, FaTwitter, FaYoutube } from 'react-icons/fa'
+import getGenre from '@/app/data/genres'
+import PodcastGenreList from '../actionWrappersClient/PodcastGenreList'
 
 const PodcastFull = () => {
     const data = {
@@ -226,24 +229,25 @@ const PodcastFull = () => {
         "listen_score_global_rank": "0.5%"
       }
   return (
-    <Box>
-        <Box display={"flex"}>
+    <Box fontSize={"16px"} fontWeight={400} color={"gray.600"}>
+        <Box display={"flex"} justifyContent={"space-between"}>
             <Box>
-                <Text>{data.title}</Text>
-                <Text>{data.publisher}</Text>
+                <Text fontSize={"18px"} fontWeight={500}>{data.title}</Text>
+                <Text color={"gray.500"}>{data.publisher}</Text>
                 <CustomLink link={data.website}>
-                  Web
+                  <Text>Visit Website</Text>
                 </CustomLink>
+                  <PodcastGenreList genre_ids={data.genre_ids}/>
             </Box>
 
             <Box>
-
                 <Image src={data.thumbnail} width={"80px"} height={"80px"} borderRadius={"6px"}/>
             </Box>
         </Box>
+
         <Box display={"flex"}>
         
-          <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"rose.100"} borderRadius={"4px"} mx={"12px"}>
             <FaGlobe/>
           </CustomLink>
           <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
