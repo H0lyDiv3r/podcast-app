@@ -28,7 +28,7 @@ export default function Episode() {
         <Box color={"gray.600"} width={"100%"}>
             <EpisodeDate start={data.pub_date_ms}/>
             <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
-            <TextInnerHtml text={data.description} slice={250} fontSize={"16px"}/>
+            <TextInnerHtml text={data.description} slice={250} fontSize={"14px"}/>
 
             <Box display={"flex"} marginTop={"14px"}>
                 <Box display={"flex"} justifyContent={"space-around"} alignItems={"center"} padding={"6px"} bg={"rose.500"} 

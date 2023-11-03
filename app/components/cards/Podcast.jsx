@@ -3,6 +3,7 @@ import React from 'react';
 import getGenre from '@/app/data/genres';
 import { Box, Card,Flex,Icon,Image,Text } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
+import PodcastGenreList from '../actionWrappersClient/PodcastGenreList';
 
 export default function Podcast({data}) {
   return (
@@ -30,7 +31,7 @@ export default function Podcast({data}) {
                     </Box>
 
                     <Box display={"flex"} width={"100%"} gap={"4px"} fontSize={"x-small"} > 
-                        <Text>#{getGenre(data.genre_ids[1])}</Text>
+                        <PodcastGenreList genre_ids={data.genre_ids.slice(0,1)} width={"100%"} gap={"4px"} fontSize={"x-small"}/>
                     </Box>
 
                 </Box>

@@ -1,11 +1,11 @@
 'use client'
-import { Box, Text,Image } from '@chakra-ui/react'
+import { Box, Text,Image, Flex } from '@chakra-ui/react'
 import React from 'react'
 import TextInnerHtml from '../actionWrappersClient/TextInnerHtml'
 import CustomLink from '../links/CustomLink'
-import { FaAmazon, FaEnvelope, FaFacebookF, FaGlobe, FaGoogle, FaInstagram, FaLinkedin, FaPatreon, FaSpotify, FaTwitter, FaYoutube } from 'react-icons/fa'
-import getGenre from '@/app/data/genres'
+import { FaAmazon, FaStar, FaFacebookF, FaGlobe, FaGoogle, FaInstagram, FaLinkedin, FaPatreon, FaSpotify, FaTwitter, FaYoutube } from 'react-icons/fa'
 import PodcastGenreList from '../actionWrappersClient/PodcastGenreList'
+import { getRatingColor } from '@/app/utils/ratingColors'
 
 const PodcastFull = () => {
     const data = {
@@ -229,61 +229,75 @@ const PodcastFull = () => {
         "listen_score_global_rank": "0.5%"
       }
   return (
-    <Box fontSize={"16px"} fontWeight={400} color={"gray.600"}>
+    <Box fontSize={"14px"} fontWeight={400} color={"gray.600"} padding={"8px"} width={"800px"}>
         <Box display={"flex"} justifyContent={"space-between"}>
             <Box>
-                <Text fontSize={"18px"} fontWeight={500}>{data.title}</Text>
-                <Text color={"gray.500"}>{data.publisher}</Text>
-                <CustomLink link={data.website}>
-                  <Text>Visit Website</Text>
-                </CustomLink>
-                  <PodcastGenreList genre_ids={data.genre_ids}/>
+                <Box>
+                    <Text fontSize={"16px"} fontWeight={400}>{data.title}</Text>
+                    <Text color={"gray.500"}>{data.publisher}</Text>
+                </Box>
+                <Box display={"flex"} flexWrap={"wrap"}>
+                    <PodcastGenreList genre_ids={data.genre_ids} mr={"8px"} fontSize={"12px"} fontWeight={400} color={"blue.400"}/>
+                </Box>
+
+                <Box my={"2px"}>
+                  <Flex alignItems={"baseline"} gap={"2px"} color={getRatingColor(49)}>
+                      <i><FaStar/></i>
+                      <Text>{data.listen_score}</Text>
+                  </Flex>
+                </Box>
             </Box>
 
             <Box>
                 <Image src={data.thumbnail} width={"80px"} height={"80px"} borderRadius={"6px"}/>
             </Box>
         </Box>
-
-        <Box display={"flex"}>
+        <CustomLink link={data.website} color={"rose.400"}>
+            <Text>Visit Website</Text>
+        </CustomLink>
+        <Box display={"flex"} my={"12px"}>
         
-          <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"rose.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.url1} fontSize={"18px"} color={"rose.700"} mr={"12px"}>
             <FaGlobe/>
           </CustomLink>
-          <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.url1} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaGlobe/>
           </CustomLink>
-          <CustomLink link={data.extra.url1} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.url1} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaGlobe/>
           </CustomLink>
 
-          <CustomLink link={data.extra.facebook_handle && `https://www.facebook.com/${data.extra.facebook_handle}`} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.facebook_handle && `https://www.facebook.com/${data.extra.facebook_handle}`} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaFacebookF/>
           </CustomLink>
-          <CustomLink link={data.extra.patreon_handle && `https://www.patreon.com/${data.extra.patreon_handle}`} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.patreon_handle && `https://www.patreon.com/${data.extra.patreon_handle}`} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaPatreon/>
           </CustomLink>
-          <CustomLink link={data.extra.instagram_handle && `https://www.instagram.com/${data.extra.instagram_handle}`} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.instagram_handle && `https://www.instagram.com/${data.extra.instagram_handle}`} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaInstagram/>
           </CustomLink>
-          <CustomLink link={data.extra.twitter_handle && `https://www.twitter.com/${data.extra.twitter_handle}`} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.twitter_handle && `https://www.twitter.com/${data.extra.twitter_handle}`} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaTwitter/>
           </CustomLink>
 
-          <CustomLink link={data.extra.linkedin_url && data.extra.linkedin_url} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.linkedin_url && data.extra.linkedin_url} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaLinkedin/>
           </CustomLink>
-          <CustomLink link={data.extra.google_url && data.extra.google_url} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.google_url && data.extra.google_url} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaGoogle/>
           </CustomLink>
-          <CustomLink link={data.extra.youtube_url && data.extra.youtube_url} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.youtube_url && data.extra.youtube_url} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaYoutube/>
           </CustomLink>
-          <CustomLink link={data.extra.spotify_url && data.extra.spotify_url} fontSize={"18px"} bg={"gray.800"} padding={"8px"} color={"gray.100"} borderRadius={"4px"} mx={"12px"}>
+          <CustomLink link={data.extra.spotify_url && data.extra.spotify_url} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaSpotify/>
           </CustomLink>
         </Box>
-        <TextInnerHtml text={data.description}/>
+
+
+        <Box marginTop={"12px"}>
+            <TextInnerHtml text={data.description}/>
+        </Box>
     </Box>
   )
 }

@@ -5,9 +5,6 @@ import Player from './components/player/Player'
 import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
 import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
-import SearchBar from './components/searchBar/SearchBar'
-import PlayerContextProvider from './components/player/PlayerContextProvider'
-import FormInput from './components/inputs/formInput/FormInput'
 
 
 export default async function Home() {

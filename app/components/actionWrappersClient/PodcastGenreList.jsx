@@ -6,7 +6,7 @@ const PodcastGenreList = ({genre_ids,...otherProps}) => {
   return (
     <>
         {getGenre(genre_ids).map((genre,idx)=>
-            <Text key={idx} {...otherProps}>{genre}</Text>
+            <Text key={idx} {...otherProps}>#{genre}</Text>
         )}
     </>
   )
