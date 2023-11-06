@@ -6,6 +6,7 @@ import Podcast from './components/cards/Podcast'
 import PlayerContextProvider from './components/player/PlayerContextProvider'
 import Player from './components/player/Player'
 import Navbar from './components/navbar/Navbar'
+import Sidebar from './components/sidebar/Sidebar'
 
 export default function RootLayout({ children }) {
     
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
           <Grid templateColumns={"repeat(12,1fr)"}>
 
             <GridItem colSpan={"1"}>
-
+                <Sidebar/>
             </GridItem>
 
             <GridItem colSpan={"11"}>

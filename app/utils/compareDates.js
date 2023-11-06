@@ -1,8 +1,16 @@
 
-export const calculate =async (start)=>{
-    const res = await fetch("http://worldtimeapi.org/api/timezone/Etc/GMT")
-    const data = await res.json()
-    const date = new Date(data.utc_datetime).valueOf()
+const fetchDate = async ()=>{
+    try{
+        const res = await fetch("http://worldtimeapi.org/api/timezone/Etc/GMT")
+        const data = await res.json()
+        return new Date(data.utc_datetime).valueOf()
+    }catch(err){
+
+        return new Date().valueOf()
+    }
+}
+export const calculate = async (start)=>{
+    const date = await fetchDate()
     const seconds = 1000
     const minutes = seconds * 60
     const hours = minutes * 60
@@ -10,7 +18,7 @@ export const calculate =async (start)=>{
     const month = days * 30
     const year = month * 12
     const difference = (date.valueOf() - start.valueOf())
-        
+    console.log(date)
     if(difference/year >= 1){
         return `${Math.round(difference/year) == 1 ? 'A year ago' : `${Math.round(difference/year)} years ago` }`
     }

@@ -111,16 +111,17 @@ const PlayerContextProvider = ({children}) => {
     ref.current.playbackRate = value
   }
 
-  const handlePosition = (e,ref)=>{
+  const handlePosition = (value,ref)=>{
     if(ref.current){
-      ref.current.currentTime = e.target.value
+      ref.current.currentTime = value
       dispatch({
         type:handlePosition,
         payload:{
-          position:e.target.value
+          position:value
         }
       })
     }
+    console.log(ref)
   }
 
   const handleSetCurrentTrack = (value)=>{
@@ -139,6 +140,7 @@ const PlayerContextProvider = ({children}) => {
     ref.current.currentTime = state.position
     ref.current.playbackRate = state.playbackRate
     ref.current.muted = state.muted
+    ref.current.currentTime = 0
     if(state.paused){
         ref.current.pause()
     }else{

@@ -14,7 +14,7 @@ export default async function Home() {
     <main>
       
 
-        <SimpleGrid minChildWidth={"170px"} spacing={10} width={"100%"} overflow={"auto"}>
+        <SimpleGrid minChildWidth={"150px"} spacing={3} width={"100%"} height={"75vh"} overflow={"auto"}>
 
           {data.podcasts.podcasts.map(podcast =>
             <Podcast key={podcast.id}  data={podcast}/>

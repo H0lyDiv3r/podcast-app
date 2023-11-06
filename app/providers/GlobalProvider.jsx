@@ -1,12 +1,41 @@
 'use client'
-import React,{createContext} from 'react'
+import React,{createContext, useReducer} from 'react'
 import globalActionCreators from '../context/globalActionCreators'
 
 export const GlobalContext = createContext()
 
+const initialState = {
+
+    currentEpisode:null
+}
+
+const reducer = (state,action)=>{
+    if(action.type === 'SET_CURRENT_EPISODE'){
+      return {...state,
+              currentEpisode:{
+                  title:action.payload.title,
+                  thumbnail:action.payload.thumbnail,
+                  audio:action.payload.audio,
+                  audioLength:action.payload.audioLength
+                }}
+    }
+    return state
+}
+
 export default function GlobalContextProvider({children}) {
-  const {test,state} = globalActionCreators()
-  const vals = {...state,test}
+  const [state,dispatch] = useReducer(reducer,initialState)
+  const handleSetCurrentEpisode = (data)=>{
+    dispatch({
+      type:"SET_CURRENT_EPISODE",
+      payload:{
+        title:data.title,
+        thumbnail:data.thumbnail,
+        audio:data.audio,
+        audioLength:data.audioLength
+      }
+    })
+  }
+  const vals = {...state,handleSetCurrentEpisode}
   return (
     <GlobalContext.Provider value={vals}>
         {children}

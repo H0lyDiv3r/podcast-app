@@ -1,18 +1,20 @@
 'use client'
 
-import React,{useRef,useEffect, useContext} from 'react'
+import React,{useRef, useContext} from 'react'
 import "./player.css"
-import { Box, Button, Icon, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Icon, Image, Input, Text } from '@chakra-ui/react'
 import Controls from './Controls'
 import TimeLine from './TimeLine'
 
 import { PlayerContext } from './PlayerContextProvider'
+import { GlobalContext } from '@/app/providers/GlobalProvider'
 
 
 
 export default function Player() {
 
-    const {currentTrack,handleTimeline,handleSetCurrentTrack,handleSetPlayerValues,loaded} = useContext(PlayerContext)
+    const {currentTrack,handleTimeline,handleSetCurrentTrack,handleSetPlayerValues,loaded,handlePosition} = useContext(PlayerContext)
+    const {currentEpisode} = useContext(GlobalContext)
     
     const audioRef = useRef(null)
 
@@ -22,29 +24,38 @@ export default function Player() {
         //     setBuffered((audioRef.current.buffered.end( audioRef.current.buffered.length - 1 )/audioRef.current.duration)*100)
         // }
     }
-
-    useEffect(()=>{
-        // handleSetPlayerValues(audioRef)
-    },[])
+    const handleLoad = (ref)=>{
+        handleSetPlayerValues(ref)
+        handlePosition(0,ref)
+    }
 
   return (
-    <Box display={"flex"} bg={"white.900"} position={"fixed"} bottom={0} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"rose.500"}>
+    <>
+    {currentEpisode &&
+    <Box display={"flex"} bg={"white.900"} width={"100%"} boxShadow={"topShadow"} padding={"10px"} borderTopRadius={"20px"} color={"rose.500"}>
         <Box display={"none"} >
-            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} src={`./${currentTrack}`} onLoadedData={()=>handleSetPlayerValues(audioRef)}>
+            <audio controls ref={audioRef} onPlaying={()=>handleTimeline(audioRef)} onProgress={buffer} 
+                    src={`./${currentEpisode.audio}`} onLoadedData={()=>handleSetPlayerValues(audioRef)} >
                 "your browser doesnt support the element"
             </audio>
         </Box>
-        <Box height={"100%"} width={"100px"}>
-            <Text>title title</Text>
+        <Box height={"100%"} width={"30%"} display={"flex"}>
+            <Box>
+                <Image src={currentEpisode.thumbnail} width={"70px"} height={"70px"} fit={"cover"}/>
+            </Box>
+            <Box px={"6px"}>
+                <Text fontSize={"14px"}>{currentEpisode.title}</Text>
+            </Box>
         </Box>
-        <Box width={"100%"}>
+        <Box width={"70%"}>
 
             <Controls ref={audioRef}/>
-            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            <Box display={"flex"} width={"55%"} justifyContent={"center"} alignItems={"center"} >
                 <TimeLine ref={audioRef}/>
             </Box>
 
         </Box>
-    </Box>
+    </Box>}
+    </>
   )
 }

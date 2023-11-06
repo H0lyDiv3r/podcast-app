@@ -13,9 +13,7 @@ const Controls = forwardRef( ({},ref) => {
   const refer = useRef()
   return (
     <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"}> 
-        <Box width={"30%"}></Box>
-        <Spacer/>
-          <Box display={"flex"} justifyContent={"center"} width={"40%"}>
+          <Box display={"flex"} justifyContent={"center"} width={"55%"}>
               <IconButton action={()=>console.log("handle deez nuts")} color={"rose.500"}>
                 <Icon as={FaBackward}/>
               </IconButton>
