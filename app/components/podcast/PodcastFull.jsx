@@ -260,7 +260,7 @@ const PodcastFull = ({data}) => {
         </CustomLink>
         <Box display={"flex"} my={"12px"}>
         
-          <CustomLink link={data.extra.url1} fontSize={"18px"} color={"rose.700"} mr={"12px"}>
+          <CustomLink link={data.extra.url1} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaGlobe/>
           </CustomLink>
           <CustomLink link={data.extra.url1} fontSize={"18px"} color={"gray.700"} mr={"12px"}>

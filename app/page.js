@@ -8,7 +8,11 @@ import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
 
 
 export default async function Home() {
-  const res = await fetch('http://localhost:5000/best_podcasts')
+  const res = await fetch('https://listen-api.listennotes.com/api/v2/best_podcasts',{
+    headers:{
+      "X-ListenAPI-Key":"0e5cc617da324936bd653f69074fc8c8"
+    }
+  })
   const data = await res.json()
   return (
     <main>
@@ -16,7 +20,7 @@ export default async function Home() {
 
         <SimpleGrid minChildWidth={"150px"} spacing={3} width={"100%"} height={"75vh"} overflow={"auto"}>
 
-          {data.podcasts.podcasts.map(podcast =>
+          {data.podcasts.map(podcast =>
             <Podcast key={podcast.id}  data={podcast}/>
           )}
         </SimpleGrid>

@@ -24,10 +24,10 @@ export default function Podcast({data}) {
 
                     <Box display={"flex"} width={"100%"} justifyContent={"flex-start"} gap={"10px"} fontSize={"xs"}>
                         <Text>{data.language}</Text>
-                        <Flex alignItems={"baseline"} gap={"2px"} color={"green.400"}>
+                        {/* <Flex alignItems={"baseline"} gap={"2px"} color={"green.400"}>
                             <i><FaStar/></i>
                             <Text>{data.listen_score}</Text>
-                        </Flex>
+                        </Flex> */}
                     </Box>
 
                     <Box display={"flex"} width={"100%"} gap={"4px"} fontSize={"x-small"} > 

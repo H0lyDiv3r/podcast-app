@@ -89,16 +89,16 @@ const PlayerContextProvider = ({children}) => {
 
   const handleTimeline = (ref)=>{
     const interval = setInterval(()=>{
+      if (ref.current.paused) {
+        clearInterval(interval); 
+      }else{
       dispatch({
         type:setPosition,
         payload:{
           position:ref.current.currentTime
         }
-      })
+      })}
     },1000)
-    setTimeout(()=>{
-    clearInterval(interval)
-    },1000 * (ref.current.duration - ref.current.currentTime))
   }
 
   const handlePlaybackRate = (value,ref)=>{
