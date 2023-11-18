@@ -20,7 +20,6 @@ const fetchDate = async ()=>{
 
 export default async function page({testText}) {
   const data = await fetchDate()
-  console.log(data)
   return (
     <Box height={"75vh"} overflow={"auto"}>
       <PodcastFull data={data}/>

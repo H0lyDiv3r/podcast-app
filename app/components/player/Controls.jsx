@@ -20,11 +20,8 @@ const Controls = forwardRef( ({},ref) => {
               <IconButton action={()=>handleFastBackward(ref)} color={"rose.500"}>
                 <Icon as={FaFastBackward}/>
               </IconButton>
-              <Button onClick={()=>handlePlay(ref)} borderRadius={"50%"} width={"32px"} bg={"rose.500"} >
-                {loaded ? 
-                  <Icon as={ paused ? FaPlay:FaPause} color={"white.900"} boxSize={3}/>:
-                  <Spinner boxSize={"10px"}/>
-                }
+              <Button onClick={()=>handlePlay(ref)} borderRadius={"50%"} width={"32px"} bg={"rose.500"} isDisabled={!loaded}>
+                  <Icon as={ paused ? FaPlay:FaPause} color={"white.900"} boxSize={3}/>
               </Button>
               <IconButton action={()=>handleFastForward(ref)} color={"rose.500"}>
                 <Icon as={FaFastForward}/>

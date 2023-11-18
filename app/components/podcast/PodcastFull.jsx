@@ -243,22 +243,16 @@ const PodcastFull = ({data}) => {
                     <PodcastGenreList genre_ids={data.genre_ids} mr={"8px"} fontSize={"12px"} fontWeight={400} color={"blue.400"}/>
                 </Box>
 
-                <Box my={"4px"}>
-                  <Flex alignItems={"baseline"} gap={"2px"} color={getRatingColor(49)}>
-                      <i><FaStar/></i>
-                      <Text>{data.listen_score}</Text>
-                  </Flex>
-                </Box>
+                <CustomLink link={data.website} color={"rose.400"}>
+                    <Text>Visit Website</Text>
+                </CustomLink>
             </Box>
-
-            <Box bgImage={data.thumbnail} width={"100px"} height={"100px"} bgSize={"cover"} bgPos={"center"} borderRadius={"6px"} overflow={"hidden"} >
-                <Image src={"explicitContent.jpg"} width={"50%"} opacity={.7} position={"relative"} top={"70px"}/>
+              
+            <Box bgImage={data.thumbnail} width={"100px"} bgSize={"cover"} bgPos={"center"} borderRadius={"6px"} overflow={"hidden"} >
             </Box>
         </Box>
-        <CustomLink link={data.website} color={"rose.400"}>
-            <Text>Visit Website</Text>
-        </CustomLink>
-        <Box display={"flex"} my={"12px"}>
+        <Image src={"explicitContent.jpg"} width={"50px"} my={"12px"}/>
+        {/* <Box display={"flex"} my={"12px"}>
         
           <CustomLink link={data.extra.url1} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaGlobe/>
@@ -295,7 +289,7 @@ const PodcastFull = ({data}) => {
           <CustomLink link={data.extra.spotify_url && data.extra.spotify_url} fontSize={"18px"} color={"gray.700"} mr={"12px"}>
             <FaSpotify/>
           </CustomLink>
-        </Box>
+        </Box> */}
 
 
         <Box marginTop={"12px"}>

@@ -1,18 +1,21 @@
 'use client'
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 
 export const PlayerContext = createContext()
 
+
+const playerState = localStorage.getItem("root") && JSON.parse(localStorage.getItem("root")).playerState
+
+
 const initialState = {
-  paused:true,
-  volume : 0,
-  buffered : 0,
-  position : 0,
-  playbackRate:1,
-  muted:false,
-  length:0,
-  loaded:false,
-  currentTrack:'test.mp3'
+  paused: playerState.paused ? playerState.paused : true,
+  volume: playerState.volume ? playerState.volume : 50 ,
+  buffered: 0,
+  position: 0,
+  playbackRate: playerState.playbackRate ? playerState.playbackRate : 1,
+  muted: playerState.muted ? playerState.muted : false,
+  length: 0,
+  loaded: false,
 }
 
 const togglePause = 'TOGGLE_PAUSE'
@@ -25,150 +28,195 @@ const toggleMute = 'TOGGLE_MUTE'
 const setLength = 'SET_LENGTH'
 const setLoaded = 'SET_LOADED'
 const setCurrentTrack = 'SET_CURRENT_TRACK'
+const setAllState = 'SET_ALL_STATE'
 
-const reducer = (state,action)=>{
-    if(action.type === togglePause) return {...state,paused:true}
-    if(action.type === togglePlay) return {...state,paused:false}
-    if(action.type === setVolume) return {...state,volume:action.payload.volume}
-    if(action.type === setPosition) return {...state,position:action.payload.position}
-    if(action.type === setPlaybackRate) return {...state,playbackRate:action.payload.playbackRate}
-    if(action.type === setMute) return {...state,muted:action.payload.mute}
-    if(action.type === toggleMute) return {...state,muted:!state.muted}
-    if(action.type === setLength) return {...state,length:action.payload.len}
-    if(action.type === setLoaded) return {...state,loaded:action.payload.loaded}
-    if(action.type === setCurrentTrack) return {...state,currentTrack:action.payload.track}
-    return state;
+const reducer = (state, action) => {
+  if (action.type === togglePause) return { ...state, paused: true }
+  if (action.type === togglePlay) return { ...state, paused: false }
+  if (action.type === setVolume) return { ...state, volume: action.payload.volume }
+  if (action.type === setPosition) return { ...state, position: action.payload.position }
+  if (action.type === setPlaybackRate) return { ...state, playbackRate: action.payload.playbackRate }
+  if (action.type === setMute) return { ...state, muted: action.payload.mute }
+  if (action.type === toggleMute) return { ...state, muted: !state.muted }
+  if (action.type === setLength) return { ...state, length: action.payload.len }
+  if (action.type === setLoaded) return { ...state, loaded: action.payload.loaded }
+  if (action.type === setCurrentTrack) return { ...state, currentTrack: action.payload.track }
+  if (action.type === setAllState) return {...state,...action.payload.state}
+  return state;
 }
 
-const PlayerContextProvider = ({children}) => {
-  const [state,dispatch] = useReducer(reducer,initialState)
+const PlayerContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  const handlePlay = (ref)=>{
-    if(ref.current.paused){
+  const handlePlay = (ref) => {
+    if (ref.current.paused) {
       ref.current.play()
-      dispatch({type:togglePlay})
-    }else{
-        ref.current.pause()
-        dispatch({type:togglePause})
+      dispatch({ type: togglePlay })
+    } else {
+      ref.current.pause()
+      dispatch({ type: togglePause })
     }
   }
-
-  const handleMute = (ref)=>{
-    if(ref.current.muted){
+  const handlePause = (ref) => {
+    ref.current.pause()
+    dispatch({ type: togglePause })
+  }
+  const handleLoaded = (value)=>{
+    dispatch({
+      type:setLoaded,
+      payload:{
+        loaded:value
+      }
+    })
+  }
+  const handleMute = (ref) => {
+    if (ref.current.muted) {
       ref.current.muted = false
-      dispatch({type:toggleMute})
-    }else{
-        ref.current.muted = true
-        dispatch({type:toggleMute})
+      dispatch({ type: toggleMute })
+    } else {
+      ref.current.muted = true
+      dispatch({ type: toggleMute })
     }
   }
 
-  const handleVolume = (e,ref)=>{
+  const handleVolume = (e, ref) => {
     ref.current.volume = e.target.value / 100
     dispatch({
-      type:setVolume,
-      payload:{
-        volume:e.target.value
+      type: setVolume,
+      payload: {
+        volume: e.target.value
       }
     })
     dispatch({
-      type:setMute,
-      payload:{
-        mute:false
+      type: setMute,
+      payload: {
+        mute: false
       }
     })
-    if(e.target.value / 100 == 0){
+    if (e.target.value / 100 == 0) {
       dispatch({
-        type:setMute,
-        payload:{
-          mute:true
+        type: setMute,
+        payload: {
+          mute: true
         }
       })
     }
   }
 
-  const handleTimeline = (ref)=>{
-    const interval = setInterval(()=>{
+  const handleTimeline = (ref) => {
+    const interval = setInterval(() => {
       if (ref.current.paused) {
-        clearInterval(interval); 
-      }else{
-      dispatch({
-        type:setPosition,
-        payload:{
-          position:ref.current.currentTime
-        }
-      })}
-    },1000)
+        clearInterval(interval);
+      } else {
+        dispatch({
+          type: setPosition,
+          payload: {
+            position: ref.current.currentTime
+          }
+        })
+      }
+    }, 1000)
   }
 
-  const handlePlaybackRate = (value,ref)=>{
+  const handlePlaybackRate = (value, ref) => {
     dispatch({
-      type:setPlaybackRate,
-      payload:{
-        playbackRate:value
+      type: setPlaybackRate,
+      payload: {
+        playbackRate: value
       }
     })
     ref.current.playbackRate = value
   }
 
-  const handlePosition = (value,ref)=>{
-    if(ref.current){
+  const handlePosition = (value, ref) => {
+    if (ref.current) {
       ref.current.currentTime = value
       dispatch({
-        type:handlePosition,
-        payload:{
-          position:value
+        type: setPosition,
+        payload: {
+          position: value
         }
       })
     }
-    console.log(ref)
   }
 
-  const handleSetCurrentTrack = (value)=>{
+  const handleSetCurrentTrack = (value) => {
     dispatch({
-      type:setCurrentTrack,
-      payload:{
-        track:value
+      type: setCurrentTrack,
+      payload: {
+        track: value
       }
     })
-    dispatch({type:togglePause})
+    dispatch({ type: togglePause })
   }
 
-  const handleSetPlayerValues = (ref)=>{
+  const handleSetPlayerValues = (ref) => {
 
-    ref.current.volume = state.volume/100
+    ref.current.volume = state.volume / 100
     ref.current.currentTime = state.position
     ref.current.playbackRate = state.playbackRate
     ref.current.muted = state.muted
     ref.current.currentTime = 0
-    if(state.paused){
-        ref.current.pause()
-    }else{
-        ref.current.play()
+    if (state.paused) {
+      ref.current.pause()
+    } else {
+      ref.current.play()
     }
     dispatch({
-      type:setLoaded,
-      payload:{
-        loaded:true
+      type: setLength,
+      payload: {
+        len: ref.current.duration
+      }
+    })
+    dispatch({
+      type: setLoaded,
+      payload: {
+        loaded: true
       }
     })
     console.log("finished loading")
-  } 
+  }
 
-  const handleFastForward = (ref)=>{
+  const handleFastForward = (ref) => {
     ref.current.currentTime += 10
   }
 
-  const handleFastBackward = (ref)=>{
+  const handleFastBackward = (ref) => {
     ref.current.currentTime -= 10
   }
 
+  const handleOverAllState = (state)=>{
+    dispatch({
+      type:setAllState,
+      payload:{
+        state:state
+      }
+    })
+  }
 
-  const vals = {...state,handleMute,handlePlay,handlePlaybackRate,handlePosition,handleTimeline,handleVolume,handleSetCurrentTrack,handleSetPlayerValues,handleFastForward,handleFastBackward}
+
+  const vals = { ...state,
+                  handleLoaded, 
+                  handlePause, 
+                  handleMute, 
+                  handlePlay, 
+                  handlePlaybackRate,
+                  handlePosition, 
+                  handleTimeline, 
+                  handleVolume, 
+                  handleSetCurrentTrack, 
+                  handleSetPlayerValues, 
+                  handleFastForward, 
+                  handleFastBackward }
+
+  useEffect(()=>{
+    localStorage.setItem("root", JSON.stringify({playerState:state}));
+     console.log(JSON.parse(localStorage.getItem("root")))
+  },[state.paused,state.volume,state.muted,state.playbackRate])
 
   return (
     <PlayerContext.Provider value={vals}>
-        {children}
+      {children}
     </PlayerContext.Provider>
   )
 }

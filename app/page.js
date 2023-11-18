@@ -5,10 +5,11 @@ import Player from './components/player/Player'
 import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
 import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
+import url from './url'
 
 
 export default async function Home() {
-  const res = await fetch('https://listen-api.listennotes.com/api/v2/best_podcasts',{
+  const res = await fetch(url+"/best_podcasts",{
     headers:{
       "X-ListenAPI-Key":"0e5cc617da324936bd653f69074fc8c8"
     }
