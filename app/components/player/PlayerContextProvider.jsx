@@ -1,19 +1,25 @@
 'use client'
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer, useState } from 'react'
 
 export const PlayerContext = createContext()
 
-
-const playerState = localStorage.getItem("root") && JSON.parse(localStorage.getItem("root")).playerState
+const playerState = ()=>{
+  if(typeof window !== 'undefined'){
+      
+    return Boolean(localStorage.getItem("root") && JSON.parse(localStorage.getItem("root")).playerState)
+  }else{
+    return false
+  }
+} 
 
 
 const initialState = {
-  paused: playerState.paused ? playerState.paused : true,
-  volume: playerState.volume ? playerState.volume : 50 ,
+  paused: true,
+  volume: playerState() ? JSON.parse(localStorage.getItem("root")).playerState.volume : 50,
   buffered: 0,
   position: 0,
-  playbackRate: playerState.playbackRate ? playerState.playbackRate : 1,
-  muted: playerState.muted ? playerState.muted : false,
+  playbackRate: playerState() ? JSON.parse(localStorage.getItem("root")).playerState.playbackRate : 1,
+  muted: playerState() ? JSON.parse(localStorage.getItem("root")).playerState.muted : false,
   length: 0,
   loaded: false,
 }
@@ -41,7 +47,7 @@ const reducer = (state, action) => {
   if (action.type === setLength) return { ...state, length: action.payload.len }
   if (action.type === setLoaded) return { ...state, loaded: action.payload.loaded }
   if (action.type === setCurrentTrack) return { ...state, currentTrack: action.payload.track }
-  if (action.type === setAllState) return {...state,...action.payload.state}
+  if (action.type === setAllState) return {...state, ...action.payload.state}
   return state;
 }
 
@@ -84,7 +90,7 @@ const PlayerContextProvider = ({ children }) => {
     dispatch({
       type: setVolume,
       payload: {
-        volume: e.target.value
+        volume: Number(e.target.value)
       }
     })
     dispatch({
@@ -189,7 +195,7 @@ const PlayerContextProvider = ({ children }) => {
     dispatch({
       type:setAllState,
       payload:{
-        state:state
+        state:{volume:state.volume,muted:state.muted,playbackRate:state.playbackRate}
       }
     })
   }
@@ -210,9 +216,13 @@ const PlayerContextProvider = ({ children }) => {
                   handleFastBackward }
 
   useEffect(()=>{
-    localStorage.setItem("root", JSON.stringify({playerState:state}));
-     console.log(JSON.parse(localStorage.getItem("root")))
-  },[state.paused,state.volume,state.muted,state.playbackRate])
+    localStorage.setItem("root", JSON.stringify({playerState:{
+      volume:state.volume,
+      muted:state.muted,
+      playbackRate:state.playbackRate
+    }}));
+    //  console.log(JSON.parse(localStorage.getItem("root")))
+  },[state.volume,state.muted,state.playbackRate])
 
   return (
     <PlayerContext.Provider value={vals}>

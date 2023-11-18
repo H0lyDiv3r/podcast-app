@@ -6,6 +6,7 @@ import { FaPlayCircle } from 'react-icons/fa'
 import EpisodeDate from '../actionWrappersClient/EpisodeDate'
 import EpisodePlayButtonWrapper from '../actionWrappersClient/EpisodePlayButtonWrapper'
 import colors from '@/app/theme/colors'
+import { calculate } from '@/app/utils/compareDates'
 
 export default function Episode({data,full=false}) {
     // const data = {
@@ -28,7 +29,8 @@ export default function Episode({data,full=false}) {
     
   return (
         <Box color={"gray.600"} width={"100%"} my={"26px"}>
-            <EpisodeDate start={data.pub_date_ms}/>
+            {/* <EpisodeDate start={data.pub_date_ms}/> */}
+            <Text fontSize={"14"}>{calculate(data.pub_date_ms)}</Text>
             <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
             <TextInnerHtml text={data.description} slice={full ? null : 250} fontSize={"14px"}/>
 
