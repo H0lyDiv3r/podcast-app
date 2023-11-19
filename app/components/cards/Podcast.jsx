@@ -36,7 +36,7 @@ export default function Podcast({data}) {
 
                 </Box>
                 {data.explicit_content && 
-                  <Image src={"./explicitContent.jpg"} width={"60px"} opacity={0.7}/>
+                  <Image src={"./explicitContent.jpg"} width={"40px"} opacity={0.7}/>
                 }
             </Box>
         </Box>
