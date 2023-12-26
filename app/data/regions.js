@@ -1,5 +1,5 @@
 const regions = {
-
+      "all": "all",
       "ae": "United Arab Emirates",
       "al": "Albania",
       "am": "Armenia",

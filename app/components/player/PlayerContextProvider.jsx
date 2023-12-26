@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useReducer, useState } from 'react'
 
 export const PlayerContext = createContext()
 
-const playerState = ()=>{
+const playerState = () => {
   if(typeof window !== 'undefined'){
       
     return Boolean(localStorage.getItem("root") && JSON.parse(localStorage.getItem("root")).playerState)

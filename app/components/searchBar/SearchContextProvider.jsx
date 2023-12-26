@@ -9,14 +9,14 @@ const initialState = {
     q:"",
     sortByDate:true,
     type:"podcast",
-    lenMin:0,
-    lenMax:30,
+    lenMin:59,
+    lenMax:null,
     episodeMin:1,
     episodeMax:null,
     language:"English",
     region:null,
-    safeMode:0,
-    uniquePodcast:0,
+    safeMode:true,
+    uniquePodcasts:true,
     genreIds:null
 }
 
