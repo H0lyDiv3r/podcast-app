@@ -1,24 +1,23 @@
 'use client'
 import languages from '@/app/data/languages'
 import regions from '@/app/data/regions'
-import { Box, Button, Checkbox,ModalBody, Modal, ModalContent, ModalOverlay, ModalHeader, useDisclosure, ModalCloseButton, Text, Divider, Select, FormControl, FormLabel } from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import { Box, Button, Checkbox,ModalBody, Modal, ModalContent, ModalOverlay, ModalHeader, useDisclosure, ModalCloseButton, Icon, Text, Divider, Select, FormControl, FormLabel } from '@chakra-ui/react'
+import React, { useContext, useEffect } from 'react'
 import { FaCogs } from 'react-icons/fa'
 import InputMultiple from '../inputs/multipleInput/InputMultiple'
 import { SearchContext } from './SearchContextProvider'
 
 export default function SearchOptions() {
   const {onOpen,onClose,isOpen} = useDisclosure()
-  const {sortByDate,uniquePodcasts,safeMode,region,language,lenMin,lenMax,handleSetValue,episodeMin,episodeMax} = useContext(SearchContext)
+  const {sortByDate,uniquePodcasts,safeMode,region,language,lenMin,lenMax,handleSetValue,episodeMin} = useContext(SearchContext)
   const handleSetLength=(min,max)=>{
     handleSetValue("lenMin",min)
     handleSetValue("lenMax",max)
-    console.log(lenMax,lenMin)
   }
 
   return (
     <Box>
-      <Button onClick={onOpen} bg={"none"} _hover={{bg:"none"}}><FaCogs/></Button>
+      <Button onClick={onOpen} bg={"none"} _hover={{bg:"none"}}><Icon as={FaCogs} boxSize={6}/></Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg={"black.200"}/>
         <ModalContent bg={"white"} padding={"10px"} height={"540px"} overflow={"auto"} minWidth={"700px"} >

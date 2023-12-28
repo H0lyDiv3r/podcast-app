@@ -18,11 +18,8 @@ export default function RootLayout({ children }) {
           <Navbar/>  
           <Grid templateColumns={"repeat(12,1fr)"}>
 
-            <GridItem colSpan={"1"}>
-                <Sidebar/>
-            </GridItem>
 
-            <GridItem colSpan={"11"}>
+            <GridItem colSpan={"12"}>
 
               {children}
               {/* <Episode/> */}

@@ -7,8 +7,19 @@ import EpisodeDate from '../actionWrappersClient/EpisodeDate'
 import EpisodePlayButtonWrapper from '../actionWrappersClient/EpisodePlayButtonWrapper'
 import colors from '@/app/theme/colors'
 import { calculate } from '@/app/utils/compareDates'
+import AddToQueue from '../actionWrappersClient/AddToQueue'
 
-export default function Episode({data,full=false}) {
+
+
+
+
+
+
+
+
+
+
+export default function Episode({data,full=false,independent=false}) {
     // const data = {
     //         "id":"4e7c59e10e4640b98f2f3cb1777dbb43",
     //         "link":"https://sites.libsyn.com/55931/864-part-2-of-my-new-conversation-with-bobby-roberts?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
@@ -26,7 +37,6 @@ export default function Episode({data,full=false}) {
     //         "listennotes_edit_url":"https://www.listennotes.com/e/4e7c59e10e4640b98f2f3cb1777dbb43/#edit"
     //     }
     const audioLength = secondsToHours(data.audio_length_sec)
-    
   return (
         <Box color={"gray.600"} width={"100%"} my={"26px"}>
             {/* <EpisodeDate start={data.pub_date_ms}/> */}
@@ -34,23 +44,27 @@ export default function Episode({data,full=false}) {
             <Text fontSize={"16px"} fontWeight={400} color={"gray.700"}>{data.title}</Text>
             <TextInnerHtml text={data.description} slice={full ? null : 250} fontSize={"14px"}/>
 
-            <EpisodePlayButtonWrapper data={{title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
-                
-                    <Box display={"flex"} justifyContent={"space-around"} alignItems={"center"} padding={"4px"} border={`solid 1px ${colors.rose[500]}`}
-                        maxW={"150px"} minW={"110px"} fontSize={"12px"} color={"rose.500"} fontWeight={400} borderRadius={"16px"} _hover={{cursor:"pointer"}} marginTop={"8px"}>
-                        <FaPlayCircle fontSize={"20px"}/>
-                        <Box>Play</Box>
-                        <Box display={"flex"}>
-                            {Boolean(audioLength.hrs.value) &&
-                                <Text px={"4px"}>{audioLength.hrs.value}{audioLength.hrs.tag}</Text>
-                            }
-                            {Boolean(audioLength.mins.value) &&
-                                <Text>{audioLength.mins.value}{audioLength.mins.tag}</Text>
-                            }
+            <Box display={"flex"} alignItems={"center"} my={"8px"}>
+                <EpisodePlayButtonWrapper data={{title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
+                    
+                        <Box display={"flex"} justifyContent={"space-around"} alignItems={"center"} padding={"4px"} border={`solid 1px ${colors.rose[500]}`}
+                            maxW={"150px"} minW={"110px"} fontSize={"12px"} color={"rose.500"} fontWeight={400} borderRadius={"16px"} _hover={{cursor:"pointer"}}>
+                            <FaPlayCircle fontSize={"20px"}/>
+                            <Box>Play</Box>
+                            <Box display={"flex"}>
+                                {Boolean(audioLength.hrs.value) &&
+                                    <Text px={"4px"}>{audioLength.hrs.value}{audioLength.hrs.tag}</Text>
+                                }
+                                {Boolean(audioLength.mins.value) &&
+                                    <Text>{audioLength.mins.value}{audioLength.mins.tag}</Text>
+                                }
+                            </Box>
                         </Box>
-                    </Box>
-            
-            </EpisodePlayButtonWrapper>
+                
+
+                </EpisodePlayButtonWrapper>
+                <AddToQueue podcast={data}/>
+            </Box>
             
         </Box>
   )
