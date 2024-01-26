@@ -4,7 +4,7 @@ import RecomendationList from './RecomendationList'
 
 
 const Recommendations = () => {
-
+    
     const rec =  [
           {
             "id": "805535e1de5a4c7991f4f323e82ce9e7",
@@ -467,9 +467,221 @@ const Recommendations = () => {
             "listen_score_global_rank": "0.05%"
           }
         ]
+    const epRec = [
+      {
+        "id": "05534e9d98a1469c8e402b7103d77015",
+        "link": "https://www.coindesk.com/podcasts/markets-daily?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/05534e9d98a1469c8e402b7103d77015/",
+        "image": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-xEObzQi6qJr-VTiDtLAInyo.1400x1400.jpg",
+        "title": "Most Influential 2021: Roham Gharegozlou (Pt. 1)",
+        "podcast": {
+          "id": "6c7ed315628b441c8a1bf0e331da2ba9",
+          "image": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-xEObzQi6qJr-VTiDtLAInyo.1400x1400.jpg",
+          "title": "Markets Daily Crypto Roundup",
+          "publisher": "CoinDesk",
+          "thumbnail": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-q7QR_ynu6Hv-VTiDtLAInyo.300x300.jpg",
+          "listen_score": 43,
+          "listennotes_url": "https://www.listennotes.com/c/6c7ed315628b441c8a1bf0e331da2ba9/",
+          "listen_score_global_rank": "1%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-q7QR_ynu6Hv-VTiDtLAInyo.300x300.jpg",
+        "description": "<p>On today's show CoinDesk Columnist and author of 7 books, Jeff Wilser, picks Roham Gharegozlou as one of CoinDesk's Most Influential in 2021. The man behind CryptoKitties and NBA Top Shot has big plans for digital sports and the open metaverse. (Part 1)</p><p><a href=\"https://www.coindesk.com/business/2021/12/07/most-influential-2021-roham-gharegozlou/\" rel=\"noopener noreferrer\" target=\"_blank\">Read the story here.</a></p><p><br /></p><p><em>This episode is sponsored by </em><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Kava</em></a>, <a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Nexo.io</em></a><em> and </em><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Market Intel by Chainalysis</em></a><em>.</em></p><p><br /></p><p><em>This episode was edited & produced by </em><a href=\"https://www.coindesk.com/author/adrian-blust\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Adrian Blust</em></a><em>. </em></p><p><em>-</em></p><p><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Kava</em></strong></a><em> lets you mint stablecoins, lend, borrow, earn and swap safely across the world’s biggest crypto assets. Connect to the world's largest cryptocurrencies, ecosystems and financial applications on DeFi’s most trusted, scalable and secure earning platform with </em><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><em>kava.io</em></a><em>.</em></p><p><em>-</em></p><p><a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Nexo</em></strong></a><em> is a powerful, all-in-one crypto platform where you can securely store your assets. Invest, borrow, exchange and earn up to 12% APR on Bitcoin and 20+ other top coins. Insured for $375M and audited in real-time by Armanino, Nexo is rated excellent on Trustpilot. Get started today at </em><a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><em>nexo.io</em></a><em>.</em></p><p><em>-</em></p><p><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Market Intel by Chainalysis</em></strong></a><em>—the Blockchain Data Platform—arms your team with the most complete on-chain dataset to make informed crypto investments, deliver original research, and identify and confidently fund emerging players in the market. See Chainalysis </em><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Market Intel in action now</em></a><em>.</em></p><p>See Privacy Policy at <a href=\"https://art19.com/privacy\" rel=\"noopener noreferrer\" target=\"_blank\">https://art19.com/privacy</a> and California Privacy Notice at <a href=\"https://art19.com/privacy#do-not-sell-my-info\" rel=\"noopener noreferrer\" target=\"_blank\">https://art19.com/privacy#do-not-sell-my-info</a>.</p>",
+        "pub_date_ms": 1640430000558,
+        "guid_from_rss": "gid://art19-episode-locator/V0/qTL8NjCdWoTCfTWkK6E-ErwcwkPWKVNIhOlwHZH7Cbg",
+        "listennotes_url": "https://www.listennotes.com/e/05534e9d98a1469c8e402b7103d77015/",
+        "audio_length_sec": 574,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/05534e9d98a1469c8e402b7103d77015/#edit"
+      },
+      {
+        "id": "3a2016291aaa415abb9563bf8192ade7",
+        "link": "https://foundersproject.inc.com/?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/3a2016291aaa415abb9563bf8192ade7/",
+        "image": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-kmUz9vWdufn-M25bgqtK8-I.1400x1400.jpg",
+        "title": "How to Build Community Through Ownership with Roham Gharegozlou of Dapper Labs",
+        "podcast": {
+          "id": "0694a18b25354ce593c3aeba7fb94d67",
+          "image": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-kmUz9vWdufn-M25bgqtK8-I.1400x1400.jpg",
+          "title": "Inc. Founders Project with Alexa von Tobel ",
+          "publisher": "Inc. Magazine",
+          "thumbnail": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-2jsPht5pNkI-M25bgqtK8-I.300x300.jpg",
+          "listen_score": 38,
+          "listennotes_url": "https://www.listennotes.com/c/0694a18b25354ce593c3aeba7fb94d67/",
+          "listen_score_global_rank": "2%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-2jsPht5pNkI-M25bgqtK8-I.300x300.jpg",
+        "description": "<p>If you've heard of NFTs (non-fungible tokens), it's likely thanks to the work of Roham Gharegozlou. Roham is the Co-Founder and CEO of Dapper Labs, the NFT company that has created some of the most viral brands out there, from CryptoKitties to NBA Top Shot. Through his venture studio Axiom Zen, he started looking into crypto back in 2014. With a mission to bring play to crypto, Dapper Labs has been named one of the most innovative gaming companies by Fast Company and has created some of the most broadly used applications in the history of crypto. Roham shares how NBA Top Shot scaled to over one million users, why he thinks of NFTs as the next evolution of social media, and why entrepreneurship requires a healthy balance of optimism and paranoia. </p>",
+        "pub_date_ms": 1646215200067,
+        "guid_from_rss": "09eb05a6-996e-11ec-9f17-ef743a58b593",
+        "listennotes_url": "https://www.listennotes.com/e/3a2016291aaa415abb9563bf8192ade7/",
+        "audio_length_sec": 1792,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/3a2016291aaa415abb9563bf8192ade7/#edit"
+      },
+      {
+        "id": "221ff88340b941148ad90749f0c745e7",
+        "link": "https://foundersproject.inc.com/?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/221ff88340b941148ad90749f0c745e7/",
+        "image": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-kmUz9vWdufn-M25bgqtK8-I.1400x1400.jpg",
+        "title": "Flashback Episode: How to Build Community Through Ownership with Roham Gharegozlou of Dapper Labs",
+        "podcast": {
+          "id": "0694a18b25354ce593c3aeba7fb94d67",
+          "image": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-kmUz9vWdufn-M25bgqtK8-I.1400x1400.jpg",
+          "title": "Inc. Founders Project with Alexa von Tobel ",
+          "publisher": "Inc. Magazine",
+          "thumbnail": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-2jsPht5pNkI-M25bgqtK8-I.300x300.jpg",
+          "listen_score": 38,
+          "listennotes_url": "https://www.listennotes.com/c/0694a18b25354ce593c3aeba7fb94d67/",
+          "listen_score_global_rank": "2%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/inc-founders-project-with-alexa-von-tobel-2jsPht5pNkI-M25bgqtK8-I.300x300.jpg",
+        "description": "<p>If you've heard of NFTs (non-fungible tokens), it's likely thanks to the work of Roham Gharegozlou. Roham is the Co-Founder and CEO of Dapper Labs, the NFT company that has created some of the most viral brands out there, from CryptoKitties to NBA Top Shot. Through his venture studio Axiom Zen, he started looking into crypto back in 2014. With a mission to bring play to crypto, Dapper Labs has been named one of the most innovative gaming companies by Fast Company and has created some of the most broadly used applications in the history of crypto. Roham shares how NBA Top Shot scaled to over one million users, why he thinks of NFTs as the next evolution of social media, and why entrepreneurship requires a healthy balance of optimism and paranoia. </p>",
+        "pub_date_ms": 1655888400051,
+        "guid_from_rss": "ff7cc4d0-f172-11ec-b560-e703d370d4d3",
+        "listennotes_url": "https://www.listennotes.com/e/221ff88340b941148ad90749f0c745e7/",
+        "audio_length_sec": 1792,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/221ff88340b941148ad90749f0c745e7/#edit"
+      },
+      {
+        "id": "774e65cead6e4b548f09a1a7bf7c55af",
+        "link": "https://www.coindesk.com/podcasts/markets-daily?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/774e65cead6e4b548f09a1a7bf7c55af/",
+        "image": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-xEObzQi6qJr-VTiDtLAInyo.1400x1400.jpg",
+        "title": "Most Influential 2021: Roham Gharegozlou (Pt. 2)",
+        "podcast": {
+          "id": "6c7ed315628b441c8a1bf0e331da2ba9",
+          "image": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-xEObzQi6qJr-VTiDtLAInyo.1400x1400.jpg",
+          "title": "Markets Daily Crypto Roundup",
+          "publisher": "CoinDesk",
+          "thumbnail": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-q7QR_ynu6Hv-VTiDtLAInyo.300x300.jpg",
+          "listen_score": 43,
+          "listennotes_url": "https://www.listennotes.com/c/6c7ed315628b441c8a1bf0e331da2ba9/",
+          "listen_score_global_rank": "1%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/markets-daily-crypto-roundup-coindesk-q7QR_ynu6Hv-VTiDtLAInyo.300x300.jpg",
+        "description": "<p>On today's show CoinDesk Columnist and author of 7 books, Jeff Wilser, picks Roham Gharegozlou as one of CoinDesk's Most Influential in 2021. The man behind CryptoKitties and NBA Top Shot has big plans for digital sports and the open metaverse. (Part 2)</p><p><a href=\"https://www.coindesk.com/business/2021/12/07/most-influential-2021-roham-gharegozlou/\" rel=\"noopener noreferrer\" target=\"_blank\">Read the story here.</a></p><p><br /></p><p><em>This episode is sponsored by </em><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Kava</em></a>, <a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Nexo.io</em></a><em> and </em><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Market Intel by Chainalysis</em></a><em>.</em></p><p><br /></p><p><em>This episode was edited & produced by </em><a href=\"https://www.coindesk.com/author/adrian-blust\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Adrian Blust</em></a><em>.  </em></p><p><em>-</em></p><p><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Kava</em></strong></a><em> lets you mint stablecoins, lend, borrow, earn and swap safely across the world’s biggest crypto assets. Connect to the world's largest cryptocurrencies, ecosystems and financial applications on DeFi’s most trusted, scalable and secure earning platform with </em><a href=\"https://www.kava.io/marketsdaily?utm_campaign=Ad%20Affiliates&utm_source=markets_daily&utm_medium=banner_ad&utm_term=home\" rel=\"noopener noreferrer\" target=\"_blank\"><em>kava.io</em></a><em>.</em></p><p><em>-</em></p><p><a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Nexo</em></strong></a><em> is a powerful, all-in-one crypto platform where you can securely store your assets. Invest, borrow, exchange and earn up to 12% APR on Bitcoin and 20+ other top coins. Insured for $375M and audited in real-time by Armanino, Nexo is rated excellent on Trustpilot. Get started today at </em><a href=\"https://nexo.io/?%20utm_source=coindesk&utm_medium=fixed&utm_campaign=coindesk_sponsoredline_%20nov21\" rel=\"noopener noreferrer\" target=\"_blank\"><em>nexo.io</em></a><em>.</em></p><p><em>-</em></p><p><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><em>Market Intel by Chainalysis</em></strong></a><em>—the Blockchain Data Platform—arms your team with the most complete on-chain dataset to make informed crypto investments, deliver original research, and identify and confidently fund emerging players in the market. See Chainalysis </em><a href=\"https://markets.chainalysis.com/?utm_source=coindesk&utm_medium=podcast\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Market Intel in action now</em></a><em>.</em></p><p>See Privacy Policy at <a href=\"https://art19.com/privacy\" rel=\"noopener noreferrer\" target=\"_blank\">https://art19.com/privacy</a> and California Privacy Notice at <a href=\"https://art19.com/privacy#do-not-sell-my-info\" rel=\"noopener noreferrer\" target=\"_blank\">https://art19.com/privacy#do-not-sell-my-info</a>.</p>",
+        "pub_date_ms": 1640516400557,
+        "guid_from_rss": "gid://art19-episode-locator/V0/r2o71PPmrHUyC-poZTVb_1aRNHd2tBCgIe_UrksQ3Gk",
+        "listennotes_url": "https://www.listennotes.com/e/774e65cead6e4b548f09a1a7bf7c55af/",
+        "audio_length_sec": 733,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/774e65cead6e4b548f09a1a7bf7c55af/#edit"
+      },
+      {
+        "id": "2afa18fe81b64fae9a178ea4e6ea1b78",
+        "link": "http://samsungnext.com/podcast?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/2afa18fe81b64fae9a178ea4e6ea1b78/",
+        "image": "https://production.listennotes.com/podcasts/whats-next-samsung-next-BOU80jWegKh-kG8U3EdxHWo.1400x1400.jpg",
+        "title": "Building blockchain collectibles with Dapper Labs founder Roham Gharegozlou",
+        "podcast": {
+          "id": "0615f79f64de4f1989d4ad1bac7cbc9e",
+          "image": "https://production.listennotes.com/podcasts/whats-next-samsung-next-BOU80jWegKh-kG8U3EdxHWo.1400x1400.jpg",
+          "title": "What's NEXT",
+          "publisher": "Samsung NEXT",
+          "thumbnail": "https://production.listennotes.com/podcasts/whats-next-samsung-next-RaNEz68Vhc0-kG8U3EdxHWo.300x300.jpg",
+          "listen_score": 26,
+          "listennotes_url": "https://www.listennotes.com/c/0615f79f64de4f1989d4ad1bac7cbc9e/",
+          "listen_score_global_rank": "10%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/whats-next-samsung-next-RaNEz68Vhc0-kG8U3EdxHWo.300x300.jpg",
+        "description": "<p>Welcome back to What’s NEXT, the podcast exploring the technology of the future. This is the last in our series of conversations from the Web Summit conference last year. <br> <br>In this episode, Samsung NEXT’s Haley Lancaster speaks with Roham Gharegozlou, the founder and CEO of Dapper Labs, which made CryptoKitties and a number of other decentralized apps. Roham speaks about the early success of CryptoKitties, how his company works with partners like the NBA and Ubisoft, and why Dapper Labs is building a new, developer-friendly blockchain platform called Flow. <br><br></p>",
+        "pub_date_ms": 1580972400005,
+        "guid_from_rss": "8efdfab2-46e8-11ea-9483-0e1facdaf5fd",
+        "listennotes_url": "https://www.listennotes.com/e/2afa18fe81b64fae9a178ea4e6ea1b78/",
+        "audio_length_sec": 851,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/2afa18fe81b64fae9a178ea4e6ea1b78/#edit"
+      },
+      {
+        "id": "3663e1ba8f944df7956378ab332bf12b",
+        "link": "https://www.gimletmedia.com/startup?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/3663e1ba8f944df7956378ab332bf12b/",
+        "image": "https://production.listennotes.com/podcasts/startup-podcast-gimlet-14zU0c_MOmv-n9PpCBTQvoJ.1400x1400.jpg",
+        "title": "Introducing How to Save a Planet",
+        "podcast": {
+          "id": "0d362b13399240de97602ef614acdcbc",
+          "image": "https://production.listennotes.com/podcasts/startup-podcast-gimlet-14zU0c_MOmv-n9PpCBTQvoJ.1400x1400.jpg",
+          "title": "StartUp Podcast",
+          "publisher": "Gimlet",
+          "thumbnail": "https://production.listennotes.com/podcasts/startup-podcast-gimlet-8If7QBKU5jb-n9PpCBTQvoJ.300x300.jpg",
+          "listen_score": 73,
+          "listennotes_url": "https://www.listennotes.com/c/0d362b13399240de97602ef614acdcbc/",
+          "listen_score_global_rank": "0.05%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/startup-podcast-gimlet-8If7QBKU5jb-n9PpCBTQvoJ.300x300.jpg",
+        "description": "<p>Does climate change freak you out? Want to know what we, collectively, can do about it? Us too. How to Save a Planet is a podcast that asks the big questions: what do we need to do to solve the climate crisis, and how do we get it done? </p><p>Join us, journalist Alex Blumberg and scientist and policy nerd Dr. Ayana Elizabeth Johnson, as we scour the Earth for solutions, talk to people who are making a difference, ask hard questions, crack dumb jokes and — episode by episode — figure out how to build the future we want.</p>",
+        "pub_date_ms": 1598004000000,
+        "guid_from_rss": "25666464-e19c-11ea-bb5d-b3b5dc0bbdef",
+        "listennotes_url": "https://www.listennotes.com/e/3663e1ba8f944df7956378ab332bf12b/",
+        "audio_length_sec": 714,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/3663e1ba8f944df7956378ab332bf12b/#edit"
+      },
+      {
+        "id": "b03b9f59a5df4d31bf44e1828353c8e6",
+        "link": "https://www.softwaredefinedinterviews.com/ma4?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+        "audio": "https://www.listennotes.com/e/p/b03b9f59a5df4d31bf44e1828353c8e6/",
+        "image": "https://production.listennotes.com/podcasts/software-defined-interviews-software-yFixmv_8KZq-y7KRi_flj8t.1400x1400.jpg",
+        "title": "Misaligned Incentives Episode 4: You get what you pay for - compensating tech staff is often done poorly",
+        "podcast": {
+          "id": "13350cb77ad548bc8991dac9657f45b7",
+          "image": "https://production.listennotes.com/podcasts/software-defined-interviews-software-yFixmv_8KZq-y7KRi_flj8t.1400x1400.jpg",
+          "title": "Software Defined Interviews",
+          "publisher": "Software Defined Talk",
+          "thumbnail": "https://production.listennotes.com/podcasts/software-defined-interviews-software-N8fPcvt0JmU-y7KRi_flj8t.300x300.jpg",
+          "listen_score": null,
+          "listennotes_url": "https://www.listennotes.com/c/13350cb77ad548bc8991dac9657f45b7/",
+          "listen_score_global_rank": null
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/software-defined-interviews-software-N8fPcvt0JmU-y7KRi_flj8t.300x300.jpg",
+        "description": "<pre><code>    <p>We discuss compensation, particularly how people in the IT department (&quot;developers,&quot; etc.) are so disconnected from the actual business that compensating them based on business performance is near impossible. Not good if you&#39;re an IT person and like money.</p>\n</code></pre>\n\n<p>There's other types of comp. then money, obviously, and those are fine too. In particular, we discuss participation in open source and more recognition. But, still: money is the best.</p>",
+        "pub_date_ms": 1594980000000,
+        "guid_from_rss": "efb05656-d9ef-4fe7-b583-3c49d929fb6c",
+        "listennotes_url": "https://www.listennotes.com/e/b03b9f59a5df4d31bf44e1828353c8e6/",
+        "audio_length_sec": 3057,
+        "explicit_content": true,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/b03b9f59a5df4d31bf44e1828353c8e6/#edit"
+      },
+      {
+        "id": "653da187c8fc4d17adee39ecc64e0658",
+        "link": null,
+        "audio": "https://www.listennotes.com/e/p/653da187c8fc4d17adee39ecc64e0658/",
+        "image": "https://production.listennotes.com/podcasts/she-did-it-her-way/sdh-476-im-doing-it-my-way-gZBesUx8hH_-OUp-kAj5It7.1400x1400.jpg",
+        "title": "SDH 476: I'm Doing It My Way (Special Announcement) with Amanda Boleyn",
+        "podcast": {
+          "id": "baf59c165baf441d881b39ec3cc1f320",
+          "image": "https://production.listennotes.com/podcasts/she-did-it-her-way-amanda-boleyn-m7n-RzQBvEC-jsD5bCh1vo2.1400x1400.jpg",
+          "title": "She Did It Her Way",
+          "publisher": "Amanda Boleyn ",
+          "thumbnail": "https://production.listennotes.com/podcasts/she-did-it-her-way-amanda-boleyn-ck2Y4SdwDM1-jsD5bCh1vo2.300x300.jpg",
+          "listen_score": 47,
+          "listennotes_url": "https://www.listennotes.com/c/baf59c165baf441d881b39ec3cc1f320/",
+          "listen_score_global_rank": "1%"
+        },
+        "thumbnail": "https://production.listennotes.com/podcasts/she-did-it-her-way/sdh-476-im-doing-it-my-way-36NVPdTkKzI-OUp-kAj5It7.300x300.jpg",
+        "description": "<p>Hello my beautiful listeners! Welcome back to another episode of the She Did It Her Way podcast. This episode is going to be a little bit different in that I have some news to share and I am going to do it in a very full-circle way, joined by my very first podcast guest ever and dear friend, Shauna VanBogart.</p><p>This news has been some time in the making and while it certainly is bittersweet and definitely not the easiest to share it’s important to remember that sometimes the things that aren’t the easiest are actually the most necessary. </p><p>The purpose of having Shauna on the show is that she will actually be interviewing me and pulling some things out of me, as opposed to me being on the other side of the mic, so to speak. </p><p>I hope that this episode gives you permission to pivot, or potentially close a chapter that no longer feels aligned with you, no matter how challenging the transition may be. Especially when you know, in your gut, that it's time for a change.</p><p>As always, my beautiful friends, keep doing it your way. <br /> </p><p> </p><h2><strong>Insights:</strong></h2><ul><li><i>“Oh, she’s gonna do this.”</i></li><li><i>“Go inward. Stay out of your head. Stay in your heart and your gut.”</i></li></ul><p> </p><h2><strong>Resources:</strong></h2><ul><li>Check out how you can use <a href=\"https://shediditherway.com/podia\">Podia</a> in your business</li><li>Get more info about working with <a href=\"https://shaunavanbogart.com\">Shauna VanBogart</a></li></ul>",
+        "pub_date_ms": 1640001600000,
+        "guid_from_rss": "4ba9006a-73e0-4e78-969e-251495a7bd44",
+        "listennotes_url": "https://www.listennotes.com/e/653da187c8fc4d17adee39ecc64e0658/",
+        "audio_length_sec": 3002,
+        "explicit_content": false,
+        "maybe_audio_invalid": false,
+        "listennotes_edit_url": "https://www.listennotes.com/e/653da187c8fc4d17adee39ecc64e0658/#edit"
+      }
+    ]
+
   return (
-    <Box height={"75vh"} overflow={"scroll"} p={"12px"}>
+    <Box height={"75vh"} overflow={"scroll"} p={"18px"}>
         <RecomendationList data={rec}/>
+        <RecomendationList data={epRec} episode={true}/>
     </Box>
   )
 }
