@@ -933,13 +933,37 @@ export const topGenres = [
     }
   
 
-  const getGenre = (arrayOfIds)=>{
-    const g = genres.map(genre => genre.id)
-    const genreNames = []
-    arrayOfIds.map(genre=>
-        genreNames.push(Object.values(genres)[g.indexOf(genre)].name)
+  const getGenre = (arrayOfIds)=> {
+    return genres.filter((genre) => arrayOfIds.includes(genre.id)).map(a => a.name)
+/*
+    return genres.filter((genre) => arrayOfIds.includes(genre.id)).reduce((total, genre) => {
+        total.push (
+            genre.name
         )
+        return total 
+    }, []);
+   
+    const g = genres.map(genre => genre.id)
+    console.log("Genres ", genres);
+    console.log("Genres map ", g);
+    console.log("Object.Values ", Object.values(genres));
+
+    return arrayOfIds.reduce((total, genre) => { 
+        total.push( 
+            Object.values(genres)[g.indexOf(genre)].name 
+        ); 
+        return total; 
+    }, []);
+
+     
+    const genreNames = []
+
+    arrayOfIds.forEach(genre=>
+        genreNames.push(Object.values(genres)[g.indexOf(genre)].name)
+    )
+
     return genreNames
-  }
+*/  
+ }
 
   export default getGenre;
