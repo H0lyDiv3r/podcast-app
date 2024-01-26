@@ -7,17 +7,6 @@ import EpisodeDate from '../actionWrappersClient/EpisodeDate'
 import EpisodePlayButtonWrapper from '../actionWrappersClient/EpisodePlayButtonWrapper'
 import colors from '@/app/theme/colors'
 import { calculate } from '@/app/utils/compareDates'
-import AddToQueue from '../actionWrappersClient/AddToQueue'
-
-
-
-
-
-
-
-
-
-
 
 export default function Episode({data,full=false,independent=false}) {
     // const data = {
@@ -63,7 +52,6 @@ export default function Episode({data,full=false,independent=false}) {
                 
 
                 </EpisodePlayButtonWrapper>
-                <AddToQueue podcast={data}/>
             </Box>
             
         </Box>

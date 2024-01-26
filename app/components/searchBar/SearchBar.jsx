@@ -16,7 +16,6 @@ export default function SearchBar() {
               <Search/>
               <TypeInput/>
               <SearchOptions/>
-              <Queue/>
           </Box>    
       </SearchContextProvider>
   )
