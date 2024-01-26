@@ -9,23 +9,27 @@ import url from './url'
 
 
 export default async function Home() {
-  const res = await fetch(url+"/best_podcasts",{
+  const res = await fetch(process.env.URL+"/best_podcasts",{
     headers:{
-      "X-ListenAPI-Key":"0e5cc617da324936bd653f69074fc8c8"
+      "X-ListenAPI-Key":process.env.LISTEN_NOTES_KEY
     }
   })
   const data = await res.json()
   return (
     <main>
       
+        <Grid templateColumns={"repeat(12,1fr)"}>
+          <GridItem colSpan={1}></GridItem>
+            <GridItem colSpan={10}>
+                <SimpleGrid minChildWidth={"150px"} spacing={5} width={"100%"} height={"75vh"} overflow={"auto"}>
 
-        <SimpleGrid minChildWidth={"150px"} spacing={3} width={"100%"} height={"75vh"} overflow={"auto"}>
-
-          {data.podcasts.map(podcast =>
-            <Podcast key={podcast.id}  data={podcast}/>
-          )}
-        </SimpleGrid>
-      {/* <Episode/> */}
+                  {data.podcasts.map(podcast =>
+                    <Podcast key={podcast.id}  data={podcast}/>
+                  )}
+                </SimpleGrid>
+            </GridItem>
+            <GridItem colSpan={1}></GridItem>
+        </Grid>
 
     </main>
   )

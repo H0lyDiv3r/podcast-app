@@ -10,11 +10,11 @@ const RecomendationList = ({data,episode}) => {
       {!episode ?
       
         data.map(item=>
-            <RecPodcast data={item} />
+            <RecPodcast data={item} key={item.id}/>
           )
         :
         data.map(item=>
-            <RecEpisode data={item}/>
+            <RecEpisode data={item} key={item.id}/>
           )
     
     }

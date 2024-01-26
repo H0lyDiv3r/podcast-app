@@ -681,6 +681,7 @@ const Recommendations = () => {
   return (
     <Box height={"75vh"} overflow={"scroll"} p={"18px"}>
         <RecomendationList data={rec}/>
+        episodes
         <RecomendationList data={epRec} episode={true}/>
     </Box>
   )

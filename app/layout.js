@@ -7,33 +7,38 @@ import PlayerContextProvider from './components/player/PlayerContextProvider'
 import Player from './components/player/Player'
 import Navbar from './components/navbar/Navbar'
 import Sidebar from './components/sidebar/Sidebar'
+import SearchContextProvider from './components/searchBar/SearchContextProvider'
 
 export default function RootLayout({ children }) {
     
   return (
     <html lang="en">
       <body>
-        <GlobalContextProvider>
-          <ChakraProviders>
-          <Navbar/>  
-          <Grid templateColumns={"repeat(12,1fr)"}>
+        <SearchContextProvider>
+
+            <GlobalContextProvider>
+              <ChakraProviders>
+              <Navbar/>  
+              <Grid templateColumns={"repeat(12,1fr)"}>
 
 
-            <GridItem colSpan={"12"}>
+                <GridItem colSpan={"12"}>
 
-              {children}
-              {/* <Episode/> */}
-            </GridItem>
+                  {children}
+                  {/* <Episode/> */}
+                </GridItem>
 
-            <GridItem colSpan={"12"}>
-              <PlayerContextProvider>
-                <Player/>
-              </PlayerContextProvider>
-            </GridItem>
+                <GridItem colSpan={"12"}>
+                  <PlayerContextProvider>
+                    <Player/>
+                  </PlayerContextProvider>
+                </GridItem>
 
-          </Grid>
-          </ChakraProviders>
-        </GlobalContextProvider>
+              </Grid>
+              </ChakraProviders>
+            </GlobalContextProvider>
+            
+        </SearchContextProvider>
       </body>
     </html>
   )

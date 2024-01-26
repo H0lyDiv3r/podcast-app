@@ -18,11 +18,13 @@ export const calculate = (start)=>{
     const month = days * 30
     const year = month * 12
     const difference = (date.valueOf() - start.valueOf())
+
+    console.log(difference/year)
     if(difference/year >= 1){
         return `${Math.round(difference/year) == 1 ? 'A year ago' : `${Math.round(difference/year)} years ago` }`
     }
     if(difference/month >= 1 && difference/month < 12){
-        return `${Math.round(difference/month) == 1 ? 'A month ago' : `${Math.round(difference/days)} months ago` }`
+        return `${Math.round(difference/month) == 1 ? 'A month ago' : `${Math.round(difference/month)} months ago` }`
     }
     if(difference/days >= 1 && difference/days < 30){
         return `${Math.round(difference/days) == 1 ? 'A day ago' : `${Math.round(difference/days)} days ago` }`

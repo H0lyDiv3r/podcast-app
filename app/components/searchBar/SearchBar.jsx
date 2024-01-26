@@ -11,22 +11,10 @@ import { FaList } from 'react-icons/fa'
 
 export default function SearchBar() {
   return (
-      <SearchContextProvider>
           <Box display={"flex"} alignItems={"center"} width={"100%"} justifyContent={"center"} py={"14px"} >
               <Search/>
               <TypeInput/>
               <SearchOptions/>
           </Box>    
-      </SearchContextProvider>
-  )
-}
-
-
-const Queue = ()=>{
-  return(
-    <>
-      <Badge bg={"rose.500"} color={"white"} fontSize={"12px"} position={"relative"} top={"-7px"}>0</Badge>
-      <Icon as={FaList} boxSize={6}/>
-    </>
   )
 }
