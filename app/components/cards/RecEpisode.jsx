@@ -22,7 +22,7 @@ const RecEpisode = ({data}) => {
                 <Text fontSize={"12px"} fontWeight={400} color={"gray.500"}>{calculate(data.pub_date_ms)}</Text>
             
                 <Box>
-                    <EpisodePlayButtonWrapper data={{title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
+                    <EpisodePlayButtonWrapper data={{id:data.id,title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
                         <Box bg={"rose.500"} color={"white"} h={"32px"} w={"32px"} display={"flex"} 
                             justifyContent={"center"} alignItems={"center"} borderRadius={"16px"}>
                             <FaPlay style={{fontSize:"12px"}}/>

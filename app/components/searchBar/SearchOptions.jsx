@@ -6,6 +6,7 @@ import React, { useContext, useEffect } from 'react'
 import { FaCogs } from 'react-icons/fa'
 import InputMultiple from '../inputs/multipleInput/InputMultiple'
 import { SearchContext } from './SearchContextProvider'
+import { useRouter } from 'next/navigation'
 
 export default function SearchOptions() {
   const {onOpen,onClose,isOpen} = useDisclosure()
@@ -14,11 +15,17 @@ export default function SearchOptions() {
     handleSetValue("lenMin",min)
     handleSetValue("lenMax",max)
   }
+  const router = useRouter()
+
+  const handleClose = ()=>{
+    // router.push("/?")
+    onClose()
+  }
 
   return (
     <Box>
       <Button onClick={onOpen} bg={"none"} _hover={{bg:"none"}}><Icon as={FaCogs} boxSize={6}/></Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={handleClose}>
         <ModalOverlay bg={"black.200"}/>
         <ModalContent bg={"white"} padding={"10px"} height={"540px"} overflow={"auto"} minWidth={"700px"} >
             <ModalCloseButton/>

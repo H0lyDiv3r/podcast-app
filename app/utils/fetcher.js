@@ -1,6 +1,6 @@
 
 const fetcher = async (url)=>{
-    const res = await fetch(`https://listen-api.listennotes.com/api/v2/${url}`,{
+    const res = await fetch(`${process.env.URL}/${url}`,{
         headers:{
           "X-ListenAPI-Key":process.env.LISTEN_NOTES_KEY
         }

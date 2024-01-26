@@ -13,6 +13,7 @@ const reducer = (state,action)=>{
     if(action.type === 'SET_CURRENT_EPISODE'){
       return {...state,
               currentEpisode:{
+                  id:action.payload.id,
                   title:action.payload.title,
                   thumbnail:action.payload.thumbnail,
                   audio:action.payload.audio,
@@ -28,6 +29,7 @@ export default function GlobalContextProvider({children}) {
     dispatch({
       type:"SET_CURRENT_EPISODE",
       payload:{
+        id:data.id,
         title:data.title,
         thumbnail:data.thumbnail,
         audio:data.audio,

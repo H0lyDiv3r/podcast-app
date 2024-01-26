@@ -6,15 +6,13 @@ import Podcast from './components/cards/Podcast'
 import Episode from './components/cards/Episode'
 import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
 import url from './url'
+import fetcher from './utils/fetcher'
 
 
-export default async function Home() {
-  const res = await fetch(process.env.URL+"/best_podcasts",{
-    headers:{
-      "X-ListenAPI-Key":process.env.LISTEN_NOTES_KEY
-    }
-  })
-  const data = await res.json()
+export default async function Home({searchParams}) {
+
+  const data = await fetcher(`/best_podcasts?genre_id=${searchParams.genre_id}&page=${searchParams.page}&region=${searchParams.region}&language=${searchParams.language}`)
+  console.log("params be like",searchParams)
   return (
     <main>
       

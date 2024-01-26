@@ -34,7 +34,7 @@ export default function Episode({data,full=false,independent=false}) {
             <TextInnerHtml text={data.description} slice={full ? null : 250} fontSize={"14px"}/>
 
             <Box display={"flex"} alignItems={"center"} my={"8px"}>
-                <EpisodePlayButtonWrapper data={{title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
+                <EpisodePlayButtonWrapper data={{id:data.id,title:data.title,thumbnail:data.thumbnail,audio:data.audio,audioLength:data.audio_length_sec}}>
                     
                         <Box display={"flex"} justifyContent={"space-around"} alignItems={"center"} padding={"4px"} border={`solid 1px ${colors.rose[500]}`}
                             maxW={"150px"} minW={"110px"} fontSize={"12px"} color={"rose.500"} fontWeight={400} borderRadius={"16px"} _hover={{cursor:"pointer"}}>

@@ -19,7 +19,7 @@ const fetchDate = async (params)=>{
   }
 }
 
-export default async function page({params}) {
+export default async function page({params,searchParams}) {
   const data = await fetchDate(params)
   console.log("search params be like",params)
   return (
@@ -39,7 +39,7 @@ export default async function page({params}) {
             </Box>
         </GridItem>
         <GridItem colSpan={"3"}>
-          <Recommendations/>
+          <Recommendations params={params} searchParams={searchParams}/>
         </GridItem>
     </Grid>
   )

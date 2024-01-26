@@ -1,9 +1,10 @@
 import React from 'react'
 import {Box} from "@chakra-ui/react"
 import RecomendationList from './RecomendationList'
+import fetcher from '@/app/utils/fetcher'
 
 
-const Recommendations = () => {
+const Recommendations = async ({params,searchParams}) => {
     
     const rec =  [
           {
@@ -677,12 +678,14 @@ const Recommendations = () => {
         "listennotes_edit_url": "https://www.listennotes.com/e/653da187c8fc4d17adee39ecc64e0658/#edit"
       }
     ]
+    const {recommendations} = await fetcher(`/podcasts/${params.id}/recommendations`)
+    const dataEP = await fetcher(`/episodes/${searchParams.episode_id}/recommendations`)
 
+console.log("herecome sht the sao n",params,searchParams)
   return (
     <Box height={"75vh"} overflow={"scroll"} p={"18px"}>
-        <RecomendationList data={rec}/>
-        episodes
-        <RecomendationList data={epRec} episode={true}/>
+        <RecomendationList data={searchParams.episode_id ? dataEP.recommendations:[]} episode={true} />
+        <RecomendationList data={recommendations}/>
     </Box>
   )
 }
