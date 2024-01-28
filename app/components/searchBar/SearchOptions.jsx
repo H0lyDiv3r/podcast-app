@@ -18,7 +18,7 @@ export default function SearchOptions() {
   const router = useRouter()
 
   const handleClose = ()=>{
-    // router.push("/?")
+    router.push(`?sort_by_date=${sortByDate}&unique_podcasts=${uniquePodcasts}&safe_mode=${safeMode}&region=${region}&language=${language}&len_min=${lenMin}&len_max=${lenMax}`)
     onClose()
   }
 
