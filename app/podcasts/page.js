@@ -38,7 +38,7 @@ export default async function page({testText}) {
             </Box>
         </GridItem>
         <GridItem colSpan={"3"}>
-          <Recommendations/>
+          {/* <Recommendations/> */}
         </GridItem>
     </Grid>
   )
