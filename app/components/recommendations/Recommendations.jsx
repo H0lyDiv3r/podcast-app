@@ -11,10 +11,10 @@ const Recommendations = async ({params,searchParams}) => {
   console.log(dataEP.recommendations)
   return (
     <Box height={"75vh"} overflow={"scroll"} p={"18px"}>
-      {dataEP.recommendations &&
+      {/* {dataEP.recommendations &&
       
         <RecomendationList data={ dataEP.recommendations} episode={true} />
-      }
+      } */}
         <RecomendationList data={recommendations}/>
     </Box>
   )
