@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
                 <GridItem colSpan={"12"}>
 
                   {children}
-                  {/* <Episode/> */}
                 </GridItem>
 
                 <GridItem colSpan={"12"}>

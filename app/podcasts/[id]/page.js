@@ -38,7 +38,7 @@ export default async function page({params,searchParams}) {
             </Box>
         </GridItem>
         <GridItem colSpan={"3"}>
-          {/* <Recommendations params={params} searchParams={searchParams}/> */}
+          <Recommendations params={params} searchParams={searchParams}/>
         </GridItem>
     </Grid>
   )
