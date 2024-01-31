@@ -180,7 +180,6 @@ const PlayerContextProvider = ({ children }) => {
         loaded: true
       }
     })
-    console.log("finished loading")
   }
 
   const handleFastForward = (ref) => {
@@ -221,7 +220,7 @@ const PlayerContextProvider = ({ children }) => {
       muted:state.muted,
       playbackRate:state.playbackRate
     }}));
-    //  console.log(JSON.parse(localStorage.getItem("root")))
+
   },[state.volume,state.muted,state.playbackRate])
 
   return (

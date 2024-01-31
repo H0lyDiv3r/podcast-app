@@ -21,7 +21,6 @@ const fetchDate = async (params)=>{
 
 export default async function page({params,searchParams}) {
   const data = await fetchDate(params)
-  console.log("search params be like",params)
   return (
 
     <Grid templateColumns={"repeat(12,1fr)"} height={"75vh"}>

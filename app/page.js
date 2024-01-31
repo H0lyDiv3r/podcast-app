@@ -12,7 +12,6 @@ import fetcher from './utils/fetcher'
 export default async function Home({searchParams}) {
 
   const data = await fetcher(`/best_podcasts?genre_id=${searchParams.genre_id}&page=${searchParams.page}&region=${searchParams.region}&language=${searchParams.language}`)
-  console.log("params be like",searchParams)
   return (
     <main>
       

@@ -18,8 +18,6 @@ export const calculate = (start)=>{
     const month = days * 30
     const year = month * 12
     const difference = (date.valueOf() - start.valueOf())
-
-    console.log(difference/year)
     if(difference/year >= 1){
         return `${Math.round(difference/year) == 1 ? 'A year ago' : `${Math.round(difference/year)} years ago` }`
     }
